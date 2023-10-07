@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import hamburger from "./assets/hamburger.svg";
 import hero from "./assets/Group 1.png";
 import travel from "./assets/bag.svg";
+import play from "./assets/play-circle.5 1.svg"
 
 function App() {
   const [showNav, setShowNav] = useState(false);
@@ -19,7 +20,7 @@ function App() {
   return (
     <>
       {/* navbar */}
-      <div className="py-8  flex justify-between ">
+      <div className="py-8 px-2 flex justify-between ">
         <div className="container">
           <div className="flex justify-between items-center">
             <img
@@ -36,22 +37,22 @@ function App() {
             </button>
             <div className="lg:order-2 lg:block hidden">
               <div className="flex gap-16">
-                <button className="text-gray-400 font-normal text-sm font-Circular">
+                <button className="text-gray-500 font-normal text-sm font-Circular hover:text-blue-500 hover:font-bold">
                   Home
                 </button>
-                <button className="text-gray-400 font-normal text-sm font-Circular">
+                <button className="text-gray-500 font-normal text-sm font-Circular hover:text-blue-500 hover:font-bold">
                   Discover
                 </button>
-                <button className="text-gray-400 font-normal text-sm font-Circular">
+                <button className="text-gray-500 font-normal text-sm font-Circular hover:text-blue-500 hover:font-bold">
                   About
                 </button>
-                <button className="text-gray-400 font-normal text-sm font-Circular">
+                <button className="text-gray-500 font-normal text-sm font-Circular hover:text-blue-500 hover:font-bold">
                   Contact
                 </button>
               </div>
             </div>
             <div className="order-3 md:block hidden left-0">
-              <button className="grow bg-white px-8 py-4 font-bold text-gray-400 rounded-full text-sm">
+              <button className="grow bg-white px-8 py-4 font-bold text-gray-400 rounded-full text-sm hover:text-blue-500 hover:font-bold">
                 Login
               </button>
               <button className="grow ml-2 bg-blue-500 px-8 py-4 font-bold text-white rounded-full text-sm">
@@ -61,7 +62,7 @@ function App() {
           </div>
         </div>
 
-        <div className="fixed bottom-0 right-0 left-0 bg-white p-4 ">
+        <div className="fixed bottom-0 right-0 left-0 z-9 bg-white p-4 ">
           <div className="">
             {showNav ? (
               <div className="flex justify-between">
@@ -118,10 +119,10 @@ function App() {
                   showSidebar ? "opacity-100 scale-100" : "opacity-0 scale-90"
                 }`}
               >
-                <button className="grow bg-white px-8 py-4 font-bold text-gray-400 rounded-full text-sm">
+                <button className="grow bg-white px-8 py-4 font-bold text-gray-800 rounded-full text-sm">
                   Login
                 </button>
-                <button className="grow bg-blue-500 px-8 py-4 font-bold text-white rounded-full text-sm">
+                <button className="grow bg-blue-700 px-8 py-4 font-bold text-white rounded-full text-sm">
                   Sign Up
                 </button>
               </div>
@@ -132,19 +133,37 @@ function App() {
 
       {/* hero */}
       <div>
-        <div className="container mx-auto p-4 ">
-          <div className="grid grid-cols-12">
-            <div className="lg:col-span-4 col-span-12">
+        <div className="container mx-auto px-4 py-4 lg:py-16">
+          <div className="grid grid-cols-12 items-center">
+            <div className="lg:col-span-4 col-span-12 order-2 lg:order-1">
               <div>
-                <button>
-                  Explore the world span
+                <button className="flex gap-4 my-8 mx-auto rounded-full px-8 py-4 text-blue-500 text-sm font-bold shadow-lg drop-shadow-md lg:mx-0">
+                 Lifetime Experiences
                   <img src={travel} alt="" />
                 </button>
+                <h2 className="md:mb-[43px] md:mt-[43px] lg:text-[69px] lg:text-start font-bold text-[40px] md:text-[56px] text-gray-800 leading-tight text-center">
+                    Travel <span className="text-blue-600">top destination</span> of the world
+                </h2>
+                <p className="text-center text-gray-400 lg:text-start py-4 font-inter mb-8 mt-2 md:text-[18px] md: w-3/4 mx-auto lg:w-full">
+                Explore Extraordinary Culture, Cuisine, and Natural Beauty
+                </p>
+                <div className="flex flex-col md:flex-row gap-6 justify-center lg:justify-start">
+
+                  <button className="justify-center items-center mb-4 z-10 flex gap-2 py-6 px-8 bg-white border border-blue-700 rounded-full text-sm font-bold">
+                    <img src={play} alt="" />
+                      Watch Demo
+                    </button>
+                    
+                  <button className="justify-center items-center mb-4 z-10 flex gap-2 py-6 px-8 text-white bg-blue-500 border hover:bg-blue-700 rounded-full text-sm font-bold">
+                     Get started
+                    </button>
+                    
+                </div>
               </div>
             </div>
-            <div className="lg:col-span-8 col-span-12">
+            <div className="lg:col-span-8 col-span-12 order-1 lg:order-2 ">
               <div>
-                <img src={hero} alt="" />
+                <img src={hero} alt="" className="w-full"  />
               </div>
             </div>
           </div>
