@@ -44,6 +44,10 @@ function ProductionHouse() {
 
 
   return (
+    <>
+    <div className='w-screen mt-32 font-inter text-3xl font-semibold'>
+        <h3 className='flex justify-center'>- The <span className='text-red-600'> Media </span> -</h3>
+    </div>
     <div className='w-screen h-56 justify-center items-center mt-10 md:flex grid gap-2 md:gap-5 p-2 px- md:px-20 lg:px-20 '>
     {productionHouseList.map((item)=>(
         <div className='border-[2px] border-gray-600 bg-black
@@ -59,6 +63,7 @@ function ProductionHouse() {
         </div>
         ))}
     </div>
+    </>
   )
 }
 

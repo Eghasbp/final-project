@@ -52,7 +52,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className="order-3 md:block hidden left-0">
-              <button className="grow bg-white px-8 py-4 font-bold text-gray-400 rounded-full text-sm hover:text-blue-500 hover:font-bold">
+              <button className="grow bg-white px-8 py-4 font-bold text-gray-400 rounded-full text-sm hover:text-red-600 hover:font-bold">
                 Log out
               </button>
               {/* <button className="grow ml-2 bg-blue-500 px-8 py-4 font-bold text-white rounded-full text-sm">
