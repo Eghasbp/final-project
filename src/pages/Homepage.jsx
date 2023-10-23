@@ -31,7 +31,7 @@ function App() {
                   <img src={travel} alt="" />
                 </button>
                 <h2 className="md:mb-[43px] md:mt-[43px] lg:text-[69px] lg:text-start font-bold text-[40px] md:text-[56px] text-gray-800 leading-tight text-center">
-                    Travel <span className="text-blue-600">top destination</span> of the world
+                    Travel top destination of the world
                 </h2>
                 <p className="text-center text-gray-400 lg:text-start py-4 font-inter mb-8 mt-2 md:text-[18px] md: w-3/4 mx-auto lg:w-full">
                 Explore Extraordinary Culture, Cuisine, and Natural Beauty

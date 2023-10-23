@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from "react";
 import reactLogo from "../assets/react.svg";
 import hamburger from "../assets/hamburger.svg";
+import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
 
@@ -20,8 +22,8 @@ const Navbar = () => {
   return (
     <div>
          {/* navbar */}
-      <div className="py-8 px-2 flex justify-between ">
-        <div className="container">
+      <div className="py-8 px-2 flex justify-between w-screen">
+        <div className="container w-screen">
           <div className="flex justify-between items-center">
             <img
               src={reactLogo}
@@ -37,18 +39,12 @@ const Navbar = () => {
             </button>
             <div className="lg:order-2 lg:block hidden">
               <div className="flex gap-16">
-                <button className="text-gray-500 font-normal text-sm font-Circular hover:text-blue-500 hover:font-bold">
-                  Home
+                <Link to={'/dashboard'}>
+                <button className="text-gray-500 font-semibold text-sm font-Circular hover:text-blue-500 hover:font-bold">
+                  Dashboard Admin
                 </button>
-                <button className="text-gray-500 font-normal text-sm font-Circular hover:text-blue-500 hover:font-bold">
-                  Category
-                </button>
-                <button className="text-gray-500 font-normal text-sm font-Circular hover:text-blue-500 hover:font-bold">
-                  Activity
-                </button>
-                <button className="text-gray-500 font-normal text-sm font-Circular hover:text-blue-500 hover:font-bold">
-                  Promo
-                </button>
+                </Link>
+              
               </div>
             </div>
             <div className="order-3 md:block hidden left-0">

@@ -9,7 +9,7 @@ const ShuffleHero = () => {
           Travel orgasm, sightseeing everywhere
         </span>
         <h3 className="md:text-4xl lg:text-6xl text-xl font-bold font-poppins">
-          Let's take a <span className="text-red-500">break</span> and <span className="text-red-500">enjoy the moments</span>
+          Let's take a break and enjoy the moment
         </h3>
         <p className="text-base md:text-lg text-slate-400 my-4 md:my-6">
         "A nature for the young blood."

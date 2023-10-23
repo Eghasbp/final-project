@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      borderRadius:{
+        '70px':'70px',
+      },
       fontFamily:{
         "inter": ['inter'],
         "Circular": ['Circular STD'],

@@ -13,6 +13,7 @@ const Login =() => {
   const Navigate = useNavigate();
   const [email,setEmail] =useState("");
   const[password,setPassword] = useState("");
+  const apiKey = "24405e01-fbc1-45a5-9f5a-be13afcd757c"
   
   const handleEmail = (e) => {
     setEmail(e.target.value)
@@ -21,20 +22,22 @@ const Login =() => {
 
   const handlePassword = (e) => {
     setPassword(e.target.value)
+    console.log(e.target.value)
   }
 
-  const handleSubmit = ({e}) => {
+  const handleSubmit = () => {
     const payload= {
-      username:email,
+      email:email,
       password:password,
     };
-    const header = {
-      apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c"
+    const headers = {
+      apiKey: apiKey,
+      "content-Type": "application/json"
     }
     axios 
-      .post(`https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/login`,payload,{header})
+      .post("https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/login",payload,{headers:headers})
       .then((res) => {
-        localStorage.setItem(res.token);
+        localStorage.setItem("token",res?.data?.token);
         Navigate("/")
       })
       .catch((err) => {
