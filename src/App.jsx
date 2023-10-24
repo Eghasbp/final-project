@@ -5,6 +5,8 @@ import Dashboard from './pages/Dashboard'
 import { useRoutes } from 'react-router'
 import ProtectedRoutes from './routes/ProtectedRoutes'
 import Profile from './pages/Profile'
+import Promo from './pages/Promo'
+import Activity from './pages/Activity'
 
 const routes = [
   {path: '/login', element:<Login/>},
@@ -20,6 +22,17 @@ const routes = [
     <Profile/>
   </ProtectedRoutes>
   },
+  {path: '/dashboard/promo', element:
+  <ProtectedRoutes> 
+    <Promo/>
+  </ProtectedRoutes>
+  },
+  {path: '/activity', element:
+  <ProtectedRoutes> 
+    <Activity/>
+  </ProtectedRoutes>
+  },
+
   
 ]
 

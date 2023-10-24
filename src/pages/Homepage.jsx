@@ -1,4 +1,3 @@
-import { useState } from "react";
 import hero from "../assets/Group 1.png";
 import travel from "../assets/bag.svg";
 import play from "../assets/play-circle.5 1.svg"
@@ -13,15 +12,36 @@ import destination from '../assets/destination.png'
 import Navbar from "../component/Navbar";
 import ShuffleHero from "../component/Shuffle";
 import ProductionHouse from "../component/ProductioHouse";
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Footer from "../component/Footer";
+
 
 function App() {
+
+  const [data,getData] =useState('')
+  
+  const getProfile = () => {
+  axios
+    .get(`https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/banners`,{headers:  {'apiKey': '24405e01-fbc1-45a5-9f5a-be13afcd757c', 'Authorization':`Bearer ${localStorage.getItem('token')}`}})
+    .then((res) => {
+      const data = res?.data?.data
+      getData(data)
+    })
+  }
+
+  useEffect(() => {
+    getProfile()
+  })
 
 
   return (
     <>
     <Navbar/>
+
       {/* hero */}
-      <section>
+      <section className="px-20">
         <div className="container mx-auto px-4 py-4 lg:py-16">
           <div className="grid grid-cols-12 items-center">
             <div className="lg:col-span-4 col-span-12 order-2 lg:order-1">
@@ -69,7 +89,7 @@ function App() {
       </section>
 
       {/* service */}
-      <section className="py-16 overflow-x-hidden">
+      <section className="py-16 overflow-x-hidden px-20">
         <div className="container mx-auto">
           <div className="grid grid-cols-12 items-center">
             <div className="col-span-4 flex gap-4 flex-col">
@@ -114,6 +134,12 @@ function App() {
       <section>
         <div>
           <ProductionHouse/>
+        </div>
+      </section>
+
+      <section>
+        <div className="mt-20">
+          <Footer/>
         </div>
       </section>
       

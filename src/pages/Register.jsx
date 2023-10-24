@@ -39,7 +39,7 @@ const Register =() => {
           name:name,
           password:password,
           passwordRepeat:passwordRepeat,
-          role:role,
+          role:"admin",
           profilePictureUrl:'',
           phoneNumber:phone,
         };
@@ -87,15 +87,15 @@ const Register =() => {
               <img className="w-full rounded-md h-[75vh] " src={banner} alt="" />
             </div>
           </div>
-          <div className="text-black bg-white font-inter text-center w-96 mx-auto border border-blue-600 p-12 rounded-lg shadow-2xl">
+          <div className="text-black bg-white font-inter text-center w-[500px] mx-auto border border-blue-600 p-12 rounded-lg shadow-2xl">
             <div>
-              <h1 className="font-semibold  text-3xl">Welcome Back!</h1>
+              <h1 className="font-semibold  text-3xl">Please input your details</h1>
             </div>
             <p className="text-[#9d9d9d] mt-2 text-xs">
               Let's continue the journey with passion.
             </p>
             <div className="flex justify-center">
-            <div className="mt-8 w-80 ">
+            <div className="mt-4 w-80 ">
               <div className="mb-2 block">
               </div>
               <TextInput
@@ -108,7 +108,50 @@ const Register =() => {
               />
             </div>
           </div>
-          <div className="flex justify-center">
+         
+            <div className="flex justify-center">
+            <div className="mt-4 w-80 ">
+              <div className="mb-2 block">
+              </div>
+              <TextInput
+                onChange={(e)=> {setName(e.target.value)}}
+                id="name"
+                placeholder="Name"
+                required
+                rightIcon={HiMail}
+                type="text"
+              />
+            </div>
+            </div>
+            <div className="flex justify-center">
+            <div className="mt-4 w-80 ">
+              <div className="mb-2 block">
+              </div>
+              <TextInput
+                onChange={(e)=> {setRole(e.target.value)}}
+                id="role"
+                placeholder="Role"
+                required
+                type="text"
+           
+              />
+            </div>
+            </div>
+            <div className="flex justify-center">
+            <div className="mt-4 w-80 ">
+              <div className="mb-2 block">
+              </div>
+              <TextInput
+                onChange={(e)=> {setPhone(e.target.value)}}
+                id="phone"
+                placeholder="Phone Number"
+                required
+                rightIcon={HiMail}
+                type="number"
+              />
+            </div>
+            </div>
+            <div className="flex justify-center">
             <div className="mt-4 w-80 ">
               <div className="mb-2 block">
               </div>
@@ -124,7 +167,7 @@ const Register =() => {
             </div>
             </div>
             <div className="flex justify-center">
-            <div className="mt-8 w-80 ">
+            <div className="mt-4 w-80 ">
               <div className="mb-2 block">
               </div>
               <TextInput
@@ -133,59 +176,22 @@ const Register =() => {
                 placeholder="Retype your password"
                 required
                 rightIcon={HiMail}
-                type="email"
+                type="password"
               />
             </div>
             </div>
-            <div className="flex justify-center">
-            <div className="mt-8 w-80 ">
-              <div className="mb-2 block">
-              </div>
-              <TextInput
-                onChange={(e)=> {setName(e.target.value)}}
-                id="name"
-                placeholder="Name"
-                required
-                rightIcon={HiMail}
-                type="text"
-              />
-            </div>
-            </div>
-            <div className="flex justify-center">
-            <div className="mt-8 w-80 ">
-              <div className="mb-2 block">
-              </div>
-              <TextInput
-                onChange={(e)=> {setRole(e.target.value)}}
-                id="role"
-                placeholder="Role"
-                required
-                rightIcon={HiMail}
-                type="text"
-              />
-            </div>
-            </div>
-            <div className="flex justify-center">
-            <div className="mt-8 w-80 ">
-              <div className="mb-2 block">
-              </div>
-              <TextInput
-                onChange={(e)=> {setPhone(e.target.value)}}
-                id="phone"
-                placeholder="Phone Number"
-                required
-                rightIcon={HiMail}
-                type="text"
-              />
-            </div>
-            </div>
-            <div className="flex items-center mt-4 gap-2 ">
+            {/* <div className="flex items-center mt-4 gap-2 ">
               <Checkbox id="remember" />
               <Label htmlFor="remember">
                 Remember me
               </Label>
+            </div> */}
+             <div className="flex justify-center">
+            <div className="mt-2 w-80 ">
+              <div className="mb-2 block"></div>
+            <input className="mt-8" type="file" onChange={handleFile}/>
             </div>
-            <input type="file" onChange={handleFile}/>
+            </div>
             <div className="flex items-center justify-center mt-8 gap-2">
             <Button className="w-80" type="submit" color="blue" onClick={handleSubmit}>
               Submit

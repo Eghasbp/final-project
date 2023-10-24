@@ -12,7 +12,11 @@ const Sidebar = () => {
         {name: "Category", icon:<BiCategory/>,href:'category'},
     ]
 
-    const schedule = ["Monthly","Weekly"]
+    const schedule = [`What is the famous landmark in France known for its intricate iron lattice design and was completed in 1889?
+
+    ✓ Eiffel Tower.`,`In 1492, Christopher Columbus embarked on a historic journey. What was the name of his flagship?
+
+    ✓Santa Maria`]
 
   return (
     <>
@@ -45,8 +49,7 @@ const Sidebar = () => {
         {
             schedule.map((val,index) => {
                 return (    
-                    <div key={index} className='flex items-center text-gray-500'>
-                        <div className='h-4 w-4 border border-gray-400 mr-4 rounded-full'></div>
+                    <div key={index} className='flex items-center text-gray-500 font-medium'>
                             <div>{val}</div>
                         
                     </div>
