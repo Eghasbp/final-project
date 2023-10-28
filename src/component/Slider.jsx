@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 import axios from "axios";
-import bg from "../assets/bg.png";
+import bg from "../assets/bg.jpg";
 import ButtonBanner from "./Content/ButtonBanner";
 import { Tooltip } from "react-tippy";
 import Notification from "../component/notification/Notification";
@@ -87,7 +87,6 @@ const Slider = () => {
           backgroundBlendMode: "multiply",
         }}
       >
-        <div></div>
         <h2 className="text-center p-4 font-bold font-inter text-2xl text-white bg-violet-600 rounded-lg">
           Banner Showcase & Logged Users
         </h2>

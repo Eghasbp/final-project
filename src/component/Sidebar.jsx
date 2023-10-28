@@ -36,8 +36,9 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="max-h-full  bg-slate-100 border-gray-300 w-64 px-9 py-9 space-y-24">
-        <div className="flex flex-row items-center pt-8 gap-4">
+      <div className="max-h-full bg-slate-100 border-gray-300 w-64 px-9 py-9 space-y-24">
+        <div className="fixed">
+        <div className="flex  flex-row items-center pt-8 gap-4">
           <img src={Logo} alt="" className="w-9 h-9" />
           <div className="font-Circular font-semibold">Travelasia</div>
         </div>
@@ -77,7 +78,7 @@ const Sidebar = () => {
                 return (
                   <div
                     key={index}
-                    className="flex items-center text-gray-500 font-medium"
+                    className="flex items-center w-48 text-gray-500 font-medium"
                   >
                     <div>{val}</div>
                   </div>
@@ -86,6 +87,7 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

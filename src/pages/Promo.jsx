@@ -39,10 +39,25 @@ const Promo = () => {
 
   return (
     <TemplateDashboard title="PROMO">
-      <div className="flex items-center justify-center">
-        <div className="grid grid-cols-2 lg:grid-cols-5 lg:mx-20 mx-2 grid-rows-1 gap-5 mb-10 mt-20 ">
+      <div className="mx-auto bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:text-center">
+            <h2 className="text-base font-semibold leading-7 text-indigo-600">
+              Travelasia
+            </h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Promo
+            </p>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
+              Suspendisse eget egestas a elementum pulvinar et feugiat blandit
+              at. In mi viverra elit nunc.
+            </p>
+            </div></div>
+      <div className="flex items-center justify-center mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 lg:mx-20 mx-2 grid-rows-1 gap-5 mb-10 mt-20 ">
           {pictures.map((item, key) => (
-            <div className="w-screen h-96 max-w-sm bg-white border border-primary rounded-lg shadow-lg ">
+            <div key={key} className="w-screen h-96 max-w-sm bg-white border border-primary rounded-lg shadow-lg ">
               <img
                 className="p-8 w-96 h-60 rounded-t-lg"
                 src={item.imageUrl}
@@ -74,6 +89,7 @@ const Promo = () => {
        
             <AddPromo />
         </div>
+      </div>
       </div>
     </TemplateDashboard>
   );
