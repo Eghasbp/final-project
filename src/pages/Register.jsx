@@ -87,7 +87,6 @@ const Register = () => {
         setVisibleNotification(true);
         setSeverityNotification("success");
         Navigate("/login");
-       
       })
       .catch((err) => {
         console.log(err);

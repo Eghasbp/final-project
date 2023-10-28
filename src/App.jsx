@@ -69,7 +69,6 @@ const routes = [
       </ProtectedRoutes>
     ),
   },
-  
 ];
 
 function App() {

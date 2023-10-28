@@ -67,7 +67,7 @@ const Category = () => {
               Suspendisse eget egestas a elementum pulvinar et feugiat blandit
               at. In mi viverra elit nunc.
             </p>
-          <AddCategory />
+            <AddCategory />
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
@@ -95,7 +95,6 @@ const Category = () => {
             </dl>
           </div>
         </div>
-        
       </div>
     </TemplateDashboard>
   );
