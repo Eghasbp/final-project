@@ -29,7 +29,7 @@ const LoggedUser = () => {
 
   return (
     <>
-      <div className="bg-white border rounded-lg">
+      <div className="bg-white border rounded-lg mt-2">
         <div className="flex flex-col">
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
@@ -60,7 +60,7 @@ const LoggedUser = () => {
                         return (
                           <tr
                             key={key}
-                            className="border-b text-gray-600 dark:border-neutral-500"
+                            className="border-b text-black dark:border-neutral-500"
                           >
                             <td className="whitespace-nowrap px-6 py-4 font-medium">
                               {key + 1}

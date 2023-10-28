@@ -10,6 +10,7 @@ import { useNavigate } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FiAlertCircle } from "react-icons/fi";
+import Notification from "../component/notification/Notification";
 
 const Login = () => {
   const Navigate = useNavigate();
@@ -17,6 +18,10 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const apiKey = "24405e01-fbc1-45a5-9f5a-be13afcd757c";
+  const [titleNotification, setTitleNotification] = useState("");
+  const [descriptionNotification, setDescriptionNotification] = useState("");
+  const [visibleNotification, setVisibleNotification] = useState(false);
+  const [severityNotification, setSeverityNotification] = useState("success");
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -45,10 +50,18 @@ const Login = () => {
       )
       .then((res) => {
         localStorage.setItem("token", res?.data?.token);
+        setTitleNotification("Register Success");
+        setDescriptionNotification(res?.data?.message);
+        setVisibleNotification(true);
+        setSeverityNotification("success");
         Navigate("/");
       })
       .catch((err) => {
         console.log(err);
+        setTitleNotification("Register Failed");
+        setDescriptionNotification(err?.response?.data?.message);
+        setVisibleNotification(true);
+        setSeverityNotification("error");
       });
   };
 
@@ -131,49 +144,51 @@ const Login = () => {
               </div>
               <AnimatePresence isOpen={isOpen} setIsOpen={setIsOpen}>
                 {isOpen && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    onClick={() => setIsOpen(false)}
-                    className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer"
-                  >
+                  <>
                     <motion.div
-                      initial={{ scale: 0, rotate: "12.5deg" }}
-                      animate={{ scale: 1, rotate: "0deg" }}
-                      exit={{ scale: 0, rotate: "0deg" }}
-                      onClick={(e) => e.stopPropagation()}
-                      className="bg-gradient-to-br from-blue-500 to-slate-500 text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      onClick={() => setIsOpen(false)}
+                      className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer"
                     >
-                      <FiAlertCircle className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
-                      <div className="relative z-10">
-                        <div className="bg-indigo-600 w-16 h-16 mb-2 rounded-full text-3xl text-primary grid place-items-center mx-auto">
-                          <FiAlertCircle />
+                      <motion.div
+                        initial={{ scale: 0, rotate: "12.5deg" }}
+                        animate={{ scale: 1, rotate: "0deg" }}
+                        exit={{ scale: 0, rotate: "0deg" }}
+                        onClick={(e) => e.stopPropagation()}
+                        className="bg-gradient-to-br from-blue-500 to-slate-500 text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
+                      >
+                        <FiAlertCircle className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
+                        <div className="relative z-10">
+                          <div className="bg-indigo-600 w-16 h-16 mb-2 rounded-full text-3xl text-primary grid place-items-center mx-auto">
+                            <FiAlertCircle />
+                          </div>
+                          <h3 className="text-3xl font-bold text-center mb-2">
+                            One more thing!
+                          </h3>
+                          <p className="text-center mb-6">
+                            Check your username and password again to make sure
+                            it's correct, never too late to come back dude !
+                          </p>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => setIsOpen(false)}
+                              className="bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded"
+                            >
+                              Nah, go back
+                            </button>
+                            <button
+                              onClick={handleSubmit}
+                              className="bg-white hover:bg-blue-200 transition-opacity text-black font-semibold w-full py-2 rounded"
+                            >
+                              Understood!
+                            </button>
+                          </div>
                         </div>
-                        <h3 className="text-3xl font-bold text-center mb-2">
-                          One more thing!
-                        </h3>
-                        <p className="text-center mb-6">
-                          Check your username and password again to make sure
-                          it's correct, never too late to come back dude !
-                        </p>
-                        <div className="flex gap-2">
-                          <button
-                            onClick={() => setIsOpen(false)}
-                            className="bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded"
-                          >
-                            Nah, go back
-                          </button>
-                          <button
-                            onClick={handleSubmit}
-                            className="bg-white hover:bg-blue-200 transition-opacity text-black font-semibold w-full py-2 rounded"
-                          >
-                            Understood!
-                          </button>
-                        </div>
-                      </div>
+                      </motion.div>
                     </motion.div>
-                  </motion.div>
+                  </>
                 )}
               </AnimatePresence>
 
@@ -189,6 +204,13 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Notification
+        severity={severityNotification}
+        title={titleNotification}
+        description={descriptionNotification}
+        visible={visibleNotification}
+        setVisible={setVisibleNotification}
+      />
     </>
   );
 };

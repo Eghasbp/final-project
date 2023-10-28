@@ -82,11 +82,12 @@ const Register = () => {
       )
       .then((res) => {
         console.log("sucess", res);
-        Navigate("/login");
         setTitleNotification("Register Success");
         setDescriptionNotification(res?.data?.message);
         setVisibleNotification(true);
         setSeverityNotification("success");
+        Navigate("/login");
+       
       })
       .catch((err) => {
         console.log(err);

@@ -3,6 +3,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 import axios from "axios";
 import bg from "../assets/bg.png";
+import ButtonBanner from "./Content/ButtonBanner";
 
 const Slider = () => {
   const [pictures, setPictures] = useState([]); // kalau mau store pict pake array
@@ -80,7 +81,8 @@ const Slider = () => {
         <h2 className="text-center p-4 font-bold font-inter text-2xl text-white bg-violet-600 rounded-lg">
           Banner Showcase & Logged Users
         </h2>
-        <div className=" h-[500px] w-1/2 m-auto py-8 px-4 relative group">
+        <ButtonBanner />
+        <div className=" h-[500px] w-1/2 m-auto px-4 relative group">
           <div className="flex justify-end items-center">
             <button
               onClick={() => handleDelete(pictures[currentIndex]?.id)}

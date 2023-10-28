@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import Promo from "./pages/Promo";
 import Activity from "./pages/Activity";
 import DetailPromo from "./pages/DetailPromo";
+import Category from "./pages/Category";
 
 const routes = [
   { path: "/login", element: <Login /> },
@@ -53,6 +54,14 @@ const routes = [
     ),
   },
   {
+    path: "/category",
+    element: (
+      <ProtectedRoutes>
+        <Category />
+      </ProtectedRoutes>
+    ),
+  },
+  {
     path: "/promo/:id",
     element: (
       <ProtectedRoutes>
@@ -60,6 +69,7 @@ const routes = [
       </ProtectedRoutes>
     ),
   },
+  
 ];
 
 function App() {

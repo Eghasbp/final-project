@@ -17,8 +17,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Footer from "../component/Footer";
 import ShiftingCountdown from "../component/ShiftingCountdown";
+import { useNavigate } from "react-router";
+import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 
 function App() {
+  const navigate = useNavigate();
   const [data, getData] = useState([]);
   const [totalPromo, setTotalPromo] = useState(8); //setTotalptomo diset isinya total promo dikali 2
 
@@ -247,7 +250,7 @@ function App() {
                           {item.description}
                         </p>
                         <button
-                          onClick={() => handleDetail(item.id)}
+                           onClick={() => navigate(`/promo/${item.id}`)}
                           className="rounded-full font-poppins bg-primary py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/20"
                         >
                           See More
@@ -270,11 +273,15 @@ function App() {
           </button>
         </div>
       </section>
+
+       
+
       <section>
         <div className="mt-20">
           <Footer />
         </div>
       </section>
+      
 
       <script
         type="module"

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Modal from "../Modal";
+import Modal from "./Modal";
 import axios from "axios";
 
-const ButtonBanner = () => {
+const addCategory = () => {
   const [file, setFile] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [name, setName] = useState("");
@@ -50,7 +50,7 @@ const ButtonBanner = () => {
     await axios
 
       .post(
-        `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/create-banner`,
+        `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/create-category`,
         payload,
         {
           headers: {
@@ -70,12 +70,12 @@ const ButtonBanner = () => {
 
   return (
     <div>
-      <div className="flex justify-start items-center m-8 gap-8">
+      <div className="flex justify-center items-center m-8 gap-8">
         <button
           onClick={openModal}
-          className="group relative h-12 w-48 overflow-hidden rounded-2xl bg-violet-800 text-lg font-bold text-white "
+          className="group relative h-12 w-48 overflow-hidden rounded-2xl bg-blue-600 text-lg font-bold text-white "
         >
-          Add Banner
+          Add Category +
           <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
         </button>
 
@@ -83,7 +83,7 @@ const ButtonBanner = () => {
           <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-4 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <h2 className="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                Add Banner
+                Add Category
               </h2>
             </div>
 
@@ -143,4 +143,4 @@ const ButtonBanner = () => {
   );
 };
 
-export default ButtonBanner;
+export default addCategory;

@@ -6,11 +6,14 @@ const TemplateDashboard = ({ children, title }) => {
   return (
     <div className="w-full min-h-screen bg-white flex flex-row">
       <Sidebar />
-      <h1>{title}</h1>
+      {/* <div className="text-xl p-4 font-semibold text-gray-500 ">
+        <h1>{title}</h1>
+      </div> */}
       <div className="flex justify-center items-center mt-10 font-semibold text-2xl"></div>
       {children}
-      <ContentRight />
+      <ContentRight/>
     </div>
+    
   );
 };
 
