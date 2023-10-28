@@ -12,10 +12,9 @@ const ShuffleHero = () => {
           Let's take a break and enjoy the moment
         </h3>
         <p className="text-base md:text-lg text-slate-400 my-4 md:my-6">
-        "A nature for the young blood."
+          "A nature for the young blood."
         </p>
         <button className="bg-blue-600 text-white font-medium py-2 px-4 rounded transition-all hover:bg-red-600 active:scale-95">
-          
           <a href="https://internetpositif.id/">Find the Place!</a>
         </button>
       </div>
@@ -141,9 +140,9 @@ const ShuffleGrid = () => {
 
   return (
     <div className="md:block hidden">
-    <div className="ml-20 grid grid-cols-4 grid-rows-4 h-[600px] gap-1">
-      {squares.map((sq) => sq)}
-    </div>
+      <div className="ml-20 grid grid-cols-4 grid-rows-4 h-[600px] gap-1">
+        {squares.map((sq) => sq)}
+      </div>
     </div>
   );
 };

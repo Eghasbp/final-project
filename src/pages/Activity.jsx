@@ -1,13 +1,13 @@
-import React from 'react'
-import Notification from '../component/notification/RegisterSuccessNotification'
-import RegisterFailed from '../component/notification/RegisterFailed'
+import React from "react";
+import Notification from "../component/notification/RegisterSuccessNotification";
+import RegisterFailed from "../component/notification/RegisterFailed";
 
 const Activity = () => {
   return (
     <div>
-        <RegisterFailed/>
+      <RegisterFailed />
     </div>
-  )
-}
+  );
+};
 
-export default Activity
+export default Activity;

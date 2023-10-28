@@ -1,15 +1,16 @@
 import Slider from "../Slider";
-import gray from '../../assets/gray.jpg'
+import gray from "../../assets/gray.jpg";
+import ButtonBanner from "./ButtonBanner";
+import LoggedUser from "../LoggedUser";
 
 const ContentLeft = () => {
-   
   return (
     <>
-
-    <Slider/>
-
+      <Slider />
+      <ButtonBanner />
+      <LoggedUser />
     </>
   );
-}
+};
 
-export default ContentLeft
+export default ContentLeft;
