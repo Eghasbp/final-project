@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import Modal from "../Modal";
 import axios from "axios";
+import Notification from "../notification/Notification";
 
 const ButtonBanner = () => {
   const [file, setFile] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [name, setName] = useState("");
+  const [titleNotification, setTitleNotification] = useState("");
+  const [descriptionNotification, setDescriptionNotification] = useState("");
+  const [visibleNotification, setVisibleNotification] = useState(false);
+  const [severityNotification, setSeverityNotification] = useState("success");
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -61,10 +66,19 @@ const ButtonBanner = () => {
       )
       .then((res) => {
         console.log("sucess", res);
+        setTitleNotification("Add Banner Success");
+        setDescriptionNotification(res?.data?.message);
+        setVisibleNotification(true);
+        setSeverityNotification("success");
+
         // tambahkan success rate
       })
       .catch((err) => {
         console.log(err);
+        setTitleNotification("Add Banner Failed");
+        setDescriptionNotification(err?.response?.data?.message);
+        setVisibleNotification(true);
+        setSeverityNotification("error");
       });
   };
 
@@ -86,7 +100,6 @@ const ButtonBanner = () => {
                 Add Banner
               </h2>
             </div>
-
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
               <div className="space-y-6">
                 <div>
@@ -133,7 +146,13 @@ const ButtonBanner = () => {
             </div>
           </div>
         </Modal>
-
+        <Notification
+          severity={severityNotification}
+          title={titleNotification}
+          description={descriptionNotification}
+          visible={visibleNotification}
+          setVisible={setVisibleNotification}
+        />
         {/* <button className="group relative h-12 w-48 overflow-hidden rounded-2xl bg-violet-800 text-lg font-bold text-white">
           Edit Banner
           <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>

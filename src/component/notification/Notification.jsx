@@ -10,7 +10,7 @@ const Notification = ({
 }) => {
   if (visible) {
     return (
-      <div className="fixed top-0 left-0 w-screen h-screen flex min-h-screen items-center justify-center">
+      <div className="fixed top-0 left-0 w-screen h-screen flex min-h-screen mt-10 opacity-90 justify-center">
         <div className="flex flex-col gap-5">
           <div
             className={`max-w-lg rounded  overflow-hidden shadow-md ${

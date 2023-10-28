@@ -4,9 +4,15 @@ import { RxDotFilled } from "react-icons/rx";
 import axios from "axios";
 import bg from "../assets/bg.png";
 import ButtonBanner from "./Content/ButtonBanner";
+import { Tooltip } from "react-tippy";
+import Notification from "../component/notification/Notification";
 
 const Slider = () => {
   const [pictures, setPictures] = useState([]); // kalau mau store pict pake array
+  const [titleNotification, setTitleNotification] = useState("");
+  const [descriptionNotification, setDescriptionNotification] = useState("");
+  const [visibleNotification, setVisibleNotification] = useState(false);
+  const [severityNotification, setSeverityNotification] = useState("success");
 
   const getPictures = () => {
     axios
@@ -44,6 +50,10 @@ const Slider = () => {
       )
       .then((res) => {
         console.log(res);
+        setTitleNotification("Delete banner Success");
+        setDescriptionNotification(res?.data?.message);
+        setVisibleNotification(true);
+        setSeverityNotification("success");
         getPictures();
       });
   };
@@ -92,13 +102,22 @@ const Slider = () => {
               <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
             </button>
           </div>
-          <div className="w-full h-full rounded-2xl bg-center bg-cover duration-500">
-            <img
-              className="h-[380px] w-full rounded-lg border border-gray-600 p-4 shadow-2xl"
-              src={pictures[currentIndex]?.imageUrl}
-              alt=""
-            />
-          </div>
+          <Tooltip
+            title={pictures[currentIndex]?.id}
+            position="top" // You can change the position (top, bottom, left, right)
+            trigger="mouseenter" // Trigger event (mouseenter, click, etc.)
+            animation="shift-away" // Animation style (you can change this)
+            arrow={true} // Show arrow or not
+            arrowSize="small" // Customize arrow size
+          >
+            <div className="w-full h-full rounded-2xl bg-center bg-cover duration-500">
+              <img
+                className="h-[380px] w-full rounded-lg border border-gray-600 p-4 shadow-2xl"
+                src={pictures[currentIndex]?.imageUrl}
+                alt=""
+              />
+            </div>
+          </Tooltip>
           {/* Left Arrow */}
           <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
             <BsChevronCompactLeft onClick={prevSlide} size={30} />
@@ -109,6 +128,13 @@ const Slider = () => {
           </div>
         </div>
       </div>
+      <Notification
+        severity={severityNotification}
+        title={titleNotification}
+        description={descriptionNotification}
+        visible={visibleNotification}
+        setVisible={setVisibleNotification}
+      />
     </>
   );
 };
