@@ -1,56 +1,104 @@
 import React from "react";
 import TemplateDashboard from "../component/TemplateDashboard";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Activity = () => {
-  
+  const [activities, setActivities] = useState([]);
+
+  const getActivity = () => {
+    axios
+      .get(
+        `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/activities`,
+        {
+          headers: {
+            apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          },
+        }
+      )
+      .then((res) => {
+        const cat = res?.data?.data;
+        setActivities(cat); // Set the pictures in state as an array
+      });
+  };
+
+  const handleDelete = (id) => {
+    console.log(id);
+    axios
+      .delete(
+        `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/delete-activity/${id}`,
+        {
+          headers: {
+            apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        getActivity();
+      });
+  };
+
+  useEffect(() => {
+    getActivity();
+  }, []);
 
   return (
     <div>
       <TemplateDashboard>
-        <div class="container my-24 mx-auto md:px-6">
-          <section class="mb-32">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/slides/198.jpg"
-              class="mb-6 w-[500px] rounded-lg shadow-lg dark:shadow-black/20"
-              alt="image"
-            />
-
-            <div class="mb-6 flex items-center">
+        <div className="container my-24 mx-auto md:px-6">
+          {activities.map((items, key) => (
+            <section key={key} className="mb-32">
               <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (23).jpg"
-                class="mr-2 h-8 rounded-full"
-                alt="avatar"
-                loading="lazy"
+                src={items?.category?.imageUrl}
+                className="mb-6 w-[500px] rounded-lg shadow-lg dark:shadow-black/20"
+                alt="image"
               />
-              <div>
-                <span>
-                  {" "}
-                  Published <u>15.07.2020</u> by{" "}
-                </span>
-                <a href="#!" class="font-medium">
-                  Anna Maria Doe
-                </a>
+
+              <div className="mb-6 flex items-center">
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (23).jpg"
+                  className="mr-2 h-8 rounded-full"
+                  alt="avatar"
+                  loading="lazy"
+                />
+                <div>
+                  <span>
+                    {" "}
+                    Published <u>{items?.category?.createdAt}</u> at category
+                    {items?.category?.name}
+                  </span>
+                </div>
               </div>
-            </div>
 
-            <h1 class="mb-6 text-3xl font-bold">
-              An intriguing title for an interesting article
-            </h1>
-
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi
-              harum tempore cupiditate asperiores provident, itaque, quo ex
-              iusto rerum voluptatum delectus corporis quisquam maxime a ipsam
-              nisi sapiente qui optio! Dignissimos harum quod culpa officiis
-              suscipit soluta labore! Expedita quas, nesciunt similique autem,
-              sunt, doloribus pariatur maxime qui sint id enim. Placeat, maxime
-              labore. Dolores ex provident ipsa impedit, omnis magni earum. Sed
-              fuga ex ducimus consequatur corporis, architecto nesciunt vitae
-              ipsum consequuntur perspiciatis nulla esse voluptatem quos dolorum
-              delectus similique eum vero in est velit quasi pariatur blanditiis
-              incidunt quam.
-            </p>
-          </section>
+              <h2 className="mb-6 text-3xl font-bold">{items?.title}</h2>
+              <p>{items?.description}</p>
+              <div className="flex justify-between py-4">
+                <h2 className="mt-2 text-md font-medium border p-2 rounded-xl bg-violet-500 text-white">
+                  Price : {items?.price}
+                </h2>
+                <h2 className="mt-2 text-md font-medium border p-2 rounded-xl bg-violet-500 text-white">
+                  Reviews ⭐ : {items?.total_reviews}
+                </h2>
+                <h2 className="mt-2 text-md font-medium border p-2 rounded-xl bg-violet-500 text-white">
+                  Location : {items?.province}
+                </h2>
+              </div>
+              <h2 className="mt-2 text-sm font-bold">
+                Address : {items?.address}
+              </h2>
+              <div className="flex justify-end items-center">
+                <button
+                  onClick={() => handleDelete(items?.id)}
+                  className="mt-2 justify-end group relative h-10 w-20 overflow-hidden rounded-2xl bg-red-600 text-lg font-medium font-inter mb-2 text-white"
+                >
+                  Delete
+                </button>
+              </div>
+              <hr />
+            </section>
+          ))}
         </div>
       </TemplateDashboard>
     </div>
