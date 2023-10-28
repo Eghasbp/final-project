@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const LoggedUser = () => {
-  const [totalUser, setTotalUser] = useState(8);
+  const [totalUser, setTotalUser] = useState(5);
   const [LogUser, setLogUser] = useState([]); // kalau mau store pict pake array
 
   const getPictures = () => {
@@ -35,21 +35,21 @@ const LoggedUser = () => {
             <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
               <div className="overflow-hidden">
                 <table className="min-w-full text-left text-sm font-light">
-                  <thead className="border-b font-medium dark:border-neutral-500">
+                  <thead className="border-b bg-black text-white font-medium dark:border-neutral-500">
                     <tr>
-                      <th scope="col" className="px-6 py-4">
+                      <th scope="col" className="px-6 py-4 ">
                         #
                       </th>
                       <th scope="col" className="px-6 py-4">
                         Name
                       </th>
-                      <th scope="col" className="px-6 py-4">
+                      <th scope="col" className="px-6 py-4 hidden md:block">
                         Email
                       </th>
-                      <th scope="col" className="px-6 py-4">
+                      <th scope="col" className="px-6 py-4 ">
                         Role
                       </th>
-                      <th scope="col" className="px-6 py-4">
+                      <th scope="col" className="px-6 py-4 hidden md:block">
                         Phone Number
                       </th>
                     </tr>
@@ -68,13 +68,13 @@ const LoggedUser = () => {
                             <td className="whitespace-nowrap px-6 py-4">
                               {items.name}
                             </td>
-                            <td className="whitespace-nowrap px-6 py-4">
+                            <td className="whitespace-nowrap px-6 py-4 hidden md:block">
                               {items.email}
                             </td>
-                            <td className="whitespace-nowrap px-6 py-4">
+                            <td className="whitespace-nowrap px-6 py-4 ">
                               {items.role}
                             </td>
-                            <td className="whitespace-nowrap px-6 py-4">
+                            <td className="whitespace-nowrap px-6 py-4 hidden md:block">
                               {items.phoneNumber}
                             </td>
                           </tr>

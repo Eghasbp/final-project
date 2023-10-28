@@ -9,6 +9,7 @@ import AddPromo from "../component/AddPromo";
 const Promo = () => {
   const navigate = useNavigate();
   const [pictures, setPictures] = useState([]); // kalau mau store pict pake array
+  const [totalPromo, setTotalPromo] = useState(7);
 
   const getPictures = () => {
     axios
@@ -55,43 +56,53 @@ const Promo = () => {
             </p>
           </div>
         </div>
+        <AddPromo />
         <div className="flex items-center justify-center mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 lg:mx-20 mx-2 grid-rows-1 gap-5 mb-10 mt-20 ">
-            {pictures.map((item, key) => (
-              <div
-                key={key}
-                className="w-screen h-96 max-w-sm bg-white border border-primary rounded-lg shadow-lg "
-              >
-                <img
-                  className="p-8 w-96 h-60 rounded-t-lg"
-                  src={item.imageUrl}
-                  alt="product image"
-                />
-
-                <div className="px-5 pb-5x">
-                  <h5 className="text-md  font-normal tracking-tight text-gray-500 capitalize">
-                    {item.title}
-                  </h5>
-
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm mb-2 font-normal text-gray-500">
-                      <p className="font-bold mt-2">
-                        Promo code : {item.promo_code}
-                      </p>
-                    </span>
-                  </div>
-                  <button
-                    onClick={() => navigate(`/promo/${item.id}`)}
-                    className="mt-4 w-full text-white bg-violet-700 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+          <div className="grid grid-cols-1 lg:grid-cols-4 lg:mx-20 mx-2 grid-rows-1 gap-5 mb-10 mt-20 ">
+            {pictures.map((item, key) => {
+              if (key + 1 <= totalPromo) {
+                return (
+                  <div
+                    key={key}
+                    className="w-screen h-96 max-w-sm bg-white border border-primary rounded-lg shadow-lg "
                   >
-                    details
-                  </button>
-                </div>
-              </div>
-            ))}
-            {/* ADD PROMOS */}
+                    <img
+                      className="p-8 w-96 h-60 rounded-t-lg"
+                      src={item.imageUrl}
+                      alt="product image"
+                    />
 
-            <AddPromo />
+                    <div className="px-5 pb-5x">
+                      <h5 className="text-md  font-normal tracking-tight text-gray-500 capitalize">
+                        {item.title}
+                      </h5>
+
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm mb-2 font-normal text-gray-500">
+                          <p className="font-bold mt-2">
+                            Promo code : {item.promo_code}
+                          </p>
+                        </span>
+                      </div>
+                      <button
+                        onClick={() => navigate(`/promo/${item.id}`)}
+                        className="mt-4 w-full text-white bg-violet-700 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                      >
+                        details
+                      </button>
+                    </div>
+                  </div>
+                );
+              }
+            })}
+            <div className="flex justify-center items-center">
+              <button
+                onClick={() => setTotalPromo(totalPromo * 2)}
+                className="w-60 text-md border p-2 rounded-lg bg-violet-600 text-white"
+              >
+                See more . . .
+              </button>
+            </div>
           </div>
         </div>
       </div>

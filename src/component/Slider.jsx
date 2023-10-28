@@ -79,7 +79,7 @@ const Slider = () => {
   return (
     <>
       <div
-        className="w-full border border-gray-300 rounded-xl bg-gradient-to-r from-gray-300  to-gray-300 h-full"
+        className="hidden md:block w-full border border-gray-300 rounded-xl bg-gradient-to-r from-gray-300  to-gray-300 h-full"
         style={{
           background: `url(${bg})`,
           backgroundSize: "contain",
@@ -127,6 +127,8 @@ const Slider = () => {
           </div>
         </div>
       </div>
+      <div></div>
+
       <Notification
         severity={severityNotification}
         title={titleNotification}

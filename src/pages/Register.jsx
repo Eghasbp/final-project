@@ -10,7 +10,7 @@ import {
   HiLockClosed,
 } from "react-icons/hi";
 import nature from "../assets/nature.jpg";
-import gray from "../assets/gray.jpg";
+import grays from "../assets/grays.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
@@ -110,7 +110,7 @@ const Register = () => {
         <div
           className="container m-auto h-[80vh]  w-[80vw] items-center bg-white rounded-md shadow-lg "
           style={{
-            background: `url(${gray})`,
+            background: `url(${grays})`,
             backgroundSize: "contain",
             backgroundPosition: "center",
             backgroundBlendMode: "multiply",

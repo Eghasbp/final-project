@@ -36,58 +36,60 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="max-h-full bg-slate-100 border-gray-300 w-64 px-9 py-9 space-y-24">
+      <div className="max-h-full md:bg-slate-100 border-gray-300 md:w-64 w-20  px-2 md:px-9 py-9 space-y-24">
         <div className="fixed">
-        <div className="flex  flex-row items-center pt-8 gap-4">
-          <img src={Logo} alt="" className="w-9 h-9" />
-          <div className="font-Circular font-semibold">Travelasia</div>
-        </div>
-        <div className="space-y-24">
-          <div>
-            <ul className="space-y-7">
-              <div className="mb-4 mt-24 font-inter text-blue-600 font-semibold">
-                Menu
+          <div className="flex flex-row items-center pt-8 gap-4">
+            <img src={Logo} alt="" className="w-9 h-9" />
+            <div className="font-Circular font-semibold hidden md:block">
+              Travelasia
+            </div>
+          </div>
+          <div className="space-y-24">
+            <div>
+              <ul className="space-y-7">
+                <div className="mb-4 mt-24 font-inter text-blue-600 font-semibold ">
+                  Menu
+                </div>
+                {
+                  //
+                  menu.map((val, index) => {
+                    return (
+                      <Link
+                        to={val.value}
+                        key={index}
+                        className={`flex flex-row items-center hover:text-blue-600 hover:rounded-lg hover:font-medium ${
+                          val.value.includes(location.pathname)
+                            ? `text-blue-500 rounded-lg font-medium`
+                            : `text-gray-500`
+                        }`}
+                      >
+                        <div className="mr-5">{val.icon}</div>
+                        <div className="hidden md:block">{val.name}</div>
+                      </Link>
+                    );
+                  })
+                }
+              </ul>
+            </div>
+            <div>
+              <div className="hidden md:block mb-7 font-inter font-semibold text-blue-600">
+                Trivia Area
               </div>
-              {
-                //
-                menu.map((val, index) => {
+              <div className="space-y-7">
+                {schedule.map((val, index) => {
                   return (
-                    <Link
-                      to={val.value}
+                    <div
                       key={index}
-                      className={`flex flex-row items-center hover:text-blue-600 hover:rounded-lg hover:font-medium ${
-                        val.value.includes(location.pathname)
-                          ? `text-blue-500 rounded-lg font-medium`
-                          : `text-gray-500`
-                      }`}
+                      className="flex items-center w-48 text-gray-500 font-medium"
                     >
-                      <div className="mr-5">{val.icon}</div>
-                      <div>{val.name}</div>
-                    </Link>
+                      <div className="hidden md:block">{val}</div>
+                    </div>
                   );
-                })
-              }
-            </ul>
-          </div>
-          <div>
-            <div className="mb-7 font-inter font-semibold text-blue-600">
-              Trivia Area
-            </div>
-            <div className="space-y-7">
-              {schedule.map((val, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="flex items-center w-48 text-gray-500 font-medium"
-                  >
-                    <div>{val}</div>
-                  </div>
-                );
-              })}
+                })}
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </>
   );

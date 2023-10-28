@@ -127,19 +127,19 @@ function App() {
       </section>
 
       {/* service */}
-      <section className="py-16 overflow-x-hidden px-20">
+      <section className="py-16 overflow-x-hidden px-4 md:px-20">
         <div className="container mx-auto">
-          <div className="grid grid-cols-12 items-center">
-            <div className="col-span-4 flex gap-4 flex-col">
-              <span className="text-blue-500 font-bold leading-tight">
+          <div className="grid md:grid-cols-12 items-center">
+            <div className="md:col-span-4 flex gap-4 flex-col ">
+              <span className="text-blue-500 font-bold leading-tight hidden md:block">
                 SERVICES
               </span>
-              <h2 className="font-bold text-5xl leading-tight text-gray-700">
+              <h2 className="font-bold text-xl  lg:text-5xl leading-tight text-gray-700  hidden md:block">
                 Our top value categories for you
               </h2>
             </div>
-            <div className="col-span-8 flex gap-5 w-screen">
-              <div className="flex justify-center gap-16 flex-col items-center w-[350px] rounded-[32px] border p-16">
+            <div className="lg:col-span-8 lg:flex gap-5 w-screen ">
+              <div className="flex lg:justify-center gap-16 flex-col items-center w-[350px] rounded-[32px] border p-16">
                 <div>
                   <img src={destination} alt="" />
                 </div>
@@ -195,7 +195,7 @@ function App() {
       </section>
 
       <section>
-        <div>
+        <div className="hidden md:block">
           <ProductionHouse />
         </div>
       </section>

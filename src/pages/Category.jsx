@@ -73,9 +73,9 @@ const Category = () => {
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
               {categories.map((items) => (
                 <div key={items.name} className="relative pl-16">
-                  <dt className="text-base font-semibold leading-7 text-gray-900">
+                  <dt className="shadow-lg p-2 shadow-blue-200 text-base font-semibold leading-7 text-gray-900">
                     <img
-                      className="h-40 w-40 rounded-md"
+                      className="shadow-xl h-40 w-40 rounded-md"
                       src={items.imageUrl}
                       alt=""
                     />

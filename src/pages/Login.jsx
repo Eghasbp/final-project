@@ -4,7 +4,7 @@ import banner from "../assets/security.jpg";
 import { Label, TextInput, Checkbox } from "flowbite-react";
 import { HiMail } from "react-icons/hi";
 import nature from "../assets/nature.jpg";
-import gray from "../assets/gray.jpg";
+import grays from "../assets/grays.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
@@ -68,7 +68,7 @@ const Login = () => {
   return (
     <>
       <div
-        className="bg-[#F8F8F8] h-[100vh] w-[100vw] flex"
+        className="bg-[#F8F8F8] h-screen w-screen flex"
         style={{
           background: `url(${nature})`,
           backgroundSize: "cover",
@@ -76,9 +76,9 @@ const Login = () => {
         }}
       >
         <div
-          className="container m-auto h-[80vh]  w-[80vw] items-center bg-white rounded-md shadow-lg "
+          className="container m-auto h-0 lg:h-[80vh] w-[80vw] items-center bg-white rounded-md shadow-lg "
           style={{
-            background: `url(${gray})`,
+            background: `url(${grays})`,
             backgroundSize: "contain",
             backgroundPosition: "center",
             backgroundBlendMode: "multiply",
@@ -88,13 +88,13 @@ const Login = () => {
             <div className=" h-[80vh] p-4">
               <div className=" rounded-sm items-center text-center">
                 <img
-                  className="w-full rounded-md h-[75vh] "
+                  className="w-full rounded-md h-[75vh] hidden lg:block"
                   src={banner}
                   alt=""
                 />
               </div>
             </div>
-            <div className="text-black bg-white font-inter text-center w-96 mx-auto border border-blue-600 p-12 rounded-lg shadow-2xl">
+            <div className="text-black  bg-white font-inter text-center w-96 mx-auto border border-blue-600 p-12 rounded-lg shadow-2xl">
               <div>
                 <h1 className="font-semibold  text-3xl">Welcome Back!</h1>
               </div>
