@@ -95,26 +95,28 @@ const Slider = () => {
           <div className="flex justify-end items-center">
             <button
               onClick={() => handleDelete(pictures[currentIndex]?.id)}
-              className="group relative h-10 w-20 overflow-hidden rounded-2xl bg-red-600 text-lg font-medium font-inter mb-2 text-white"
+              className="group relative h-10 w-20 overflow-hidden rounded-2xl bg-red-600 nd:text-md lg:text-lg md:font-medium font-inter mb-2 text-white"
             >
               Delete
               <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
             </button>
           </div>
           <Tooltip
-            title={pictures[currentIndex]?.id}
+            title={pictures[currentIndex]?.name}
             position="top" // You can change the position (top, bottom, left, right)
             trigger="mouseenter" // Trigger event (mouseenter, click, etc.)
             animation="shift-away" // Animation style (you can change this)
             arrow={true} // Show arrow or not
             arrowSize="small" // Customize arrow size
           >
-            <div className="w-full h-full rounded-2xl bg-center bg-cover duration-500">
-              <img
-                className="h-[380px] w-full rounded-lg border border-gray-600 p-4 shadow-2xl"
-                src={pictures[currentIndex]?.imageUrl}
-                alt=""
-              />
+            <div className="flex justify-center">
+              <div className="w-[800px] h-full rounded-2xl bg-center bg-cover duration-500">
+                <img
+                  className="h-[380px] w-full rounded-lg border border-gray-600 p-4 shadow-2xl"
+                  src={pictures[currentIndex]?.imageUrl}
+                  alt=""
+                />
+              </div>
             </div>
           </Tooltip>
           {/* Left Arrow */}

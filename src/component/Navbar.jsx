@@ -12,22 +12,22 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div className="hidden md:flex justify-between items-center p-10 text-xl">
+      <div className="flex justify-between items-center md:p-10 p-2 text-sm md:text-md lg:text-xl">
         <div className="">
           <Link
             to={"/dashboard"}
-            className="text-2xl font-semibold flex items-center space-x-3"
+            className="md:font-semibold font-medium flex items-center space-x-1 md:space-x-3"
           >
-            <img className="w-10 inline-block items-center" src={Logo} alt="" />
-            <span>Travelasia dashboard</span>
+            <img className="md:w-10 w-4 inline-block items-center" src={Logo} alt="" />
+            <span className="text-sm md:text-lg lg:text-2xl">Travelasia dashboard</span>
           </Link>
         </div>
         <div>
           <button
             onClick={handleLogout}
-            className="bg-violet-600 p-3 text-white rounded-lg font-medium font-sans hover:bg-violet-800"
+            className="p-3 text-white rounded-lg font-medium font-sans"
           >
-            Log out
+            ❌
           </button>
         </div>
       </div>

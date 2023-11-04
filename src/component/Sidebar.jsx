@@ -7,6 +7,7 @@ import {
   BiSolidDiscount,
   BiPulse,
   BiCategory,
+  BiTrash,
 } from "react-icons/bi";
 
 const Sidebar = () => {
@@ -36,9 +37,9 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="max-h-full md:bg-slate-100 border-gray-300 md:w-64 w-20  px-2 md:px-9 py-9 space-y-24">
+      <div className="max-h-full  md:w-64 w-20  px-2 md:px-9 py-9 ">
         <div className="fixed">
-          <div className="flex flex-row items-center pt-8 gap-4">
+          <div className="flex lg:flex-row flex-col items-center pt-8 gap-4">
             <img src={Logo} alt="" className="w-9 h-9" />
             <div className="font-Circular font-semibold hidden md:block">
               Travelasia
@@ -59,7 +60,7 @@ const Sidebar = () => {
                         key={index}
                         className={`flex flex-row items-center hover:text-blue-600 hover:rounded-lg hover:font-medium ${
                           val.value.includes(location.pathname)
-                            ? `text-blue-500 rounded-lg font-medium`
+                            ? `text-blue-500 rounded-lg font-medium underline underline-offset-8`
                             : `text-gray-500`
                         }`}
                       >
@@ -80,7 +81,7 @@ const Sidebar = () => {
                   return (
                     <div
                       key={index}
-                      className="flex items-center w-48 text-gray-500 font-medium"
+                      className="flex items-center md:w-32 lg:w-48 text-gray-500 font-medium"
                     >
                       <div className="hidden md:block">{val}</div>
                     </div>

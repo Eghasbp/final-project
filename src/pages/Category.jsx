@@ -9,6 +9,7 @@ import {
   LockClosedIcon,
 } from "@heroicons/react/24/outline";
 import AddCategory from "../component/AddCategory";
+import {BiTrash} from "react-icons/bi"
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
@@ -72,25 +73,25 @@ const Category = () => {
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
               {categories.map((items) => (
-                <div key={items.name} className="relative pl-16">
-                  <dt className="shadow-lg p-2 shadow-blue-200 text-base font-semibold leading-7 text-gray-900">
+                <div key={items.name} className="relative pl-16 ">
+                  <dt className=" shadow-lg p-2 shadow-blue-200  rounded-lg text-base font-semibold leading-7 text-gray-900">
                     <img
                       className="shadow-xl h-40 w-40 rounded-md"
                       src={items.imageUrl}
                       alt=""
                     />
+                    <div className="flex justify-between">
                     <h2 className="mt-4">{items.name}</h2>
-                  </dt>
-                  <dd className="mt-2 text-base leading-7 text-gray-600">
-                    #{items.id}
-                  </dd>
-                  <button
+                    <button
                     onClick={() => handleDelete(items?.id)}
-                    className="mt-2 group relative h-10 w-20 overflow-hidden rounded-2xl bg-red-600 text-lg font-medium font-inter mb-2 text-white"
+                    className="mt-5 text-lg font-medium font-inter mb-2 text-black"
                   >
-                    Delete
+                    <BiTrash/>
                   </button>
+                  </div>
+                  </dt>
                 </div>
+                
               ))}
             </dl>
           </div>

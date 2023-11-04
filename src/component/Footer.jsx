@@ -84,7 +84,7 @@ const Footer = () => {
                     </ul>
                   </div>
 
-                  <div className="lg:col-span-2 md:col-span-4">
+                  <div className="lg:col-span-2 md:col-span-4 hidden md:block">
                     <h5 className="tracking-[1px] text-gray-100 font-semibold">
                       Company
                     </h5>
@@ -124,7 +124,7 @@ const Footer = () => {
                     </ul>
                   </div>
 
-                  <div className="lg:col-span-3 md:col-span-4">
+                  <div className="lg:col-span-3 md:col-span-4 hidden md:block">
                     <h5 className="tracking-[1px] text-gray-100 font-semibold">
                       Important Links
                     </h5>
@@ -156,7 +156,7 @@ const Footer = () => {
                     </ul>
                   </div>
 
-                  <div className="lg:col-span-3 md:col-span-4">
+                  <div className="lg:col-span-3 md:col-span-4 hidden md:block">
                     <h5 className="tracking-[1px] text-gray-100 font-semibold">
                       Newsletter
                     </h5>

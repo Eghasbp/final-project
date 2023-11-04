@@ -28,7 +28,7 @@ const ContentRight = () => {
   return (
     <>
       <section className="w-96 hidden md:block rounded rounded-tl-70px overflow-hidden px-8">
-        <div className="fixed bg-gray-100 h-full p-6 right-0 w-96 ">
+        <div className="fixed bg-gray-100 h-full p-6 right-0 w-80 ">
           <div className="pt-12 flex justify-end space-x-9 items-center">
             <Tooltip
               title="Profile"
@@ -76,8 +76,8 @@ const ContentRight = () => {
             </Tooltip>
           </div>
           {/* </div> */}
-          <div className="card mt-9">
-            <div className="relative p-5">
+          <div className="card mt-8">
+            <div className="relative p-3">
               <div className="text-white text-xl font-medium">{data.name}</div>
               <div className="mt-10 space-y-2 text-white">
                 <div>{data.email}</div>

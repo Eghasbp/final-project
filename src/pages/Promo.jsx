@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import TemplateDashboard from "../component/TemplateDashboard";
 import addButton from "../assets/plus2.png";
 import AddPromo from "../component/AddPromo";
+import {BiTrash,BiSolidDetail, BiDetail, BiSolidChevronsRight,BiPencil, BiSolidChevronsLeft} from "react-icons/bi"
 
 const Promo = () => {
   const navigate = useNavigate();
@@ -29,6 +30,23 @@ const Promo = () => {
       });
   };
 
+  const handleDelete = (id) => {
+    console.log(id);
+    axios
+      .delete(
+        `https://travel-journal-api-bootcamp.do.dibimbing.id/api/v1/delete-promo/${id}`,
+        {
+          headers: {
+            apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then((res) => {
+        getPictures();
+      });
+  };
+
   useEffect(() => {
     getPictures();
   }, []); // Add an empty dependency array to call getPictures only once
@@ -49,7 +67,7 @@ const Promo = () => {
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Promo
             </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-sm leading-8 text-gray-400">
               Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
               Suspendisse eget egestas a elementum pulvinar et feugiat blandit
               at. In mi viverra elit nunc.
@@ -58,7 +76,7 @@ const Promo = () => {
         </div>
         <AddPromo />
         <div className="flex items-center justify-center mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-4 lg:mx-20 mx-2 grid-rows-1 gap-5 mb-10 mt-20 ">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 xl:grid-cols-2    lg:mx-20 mx-2 grid-rows-1 gap-5 mb-10 mt-10 ">
             {pictures.map((item, key) => {
               if (key + 1 <= totalPromo) {
                 return (
@@ -84,24 +102,53 @@ const Promo = () => {
                           </p>
                         </span>
                       </div>
-                      <button
-                        onClick={() => navigate(`/promo/${item.id}`)}
-                        className="mt-4 w-full text-white bg-violet-700 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
-                      >
-                        details
-                      </button>
+                      <div className="flex justify-end items-center gap-3">
+
+                        <button
+                          onClick={() => navigate(`/promo/${item.id}`)}
+                          className="mt-4 justify-end group relative h-10 overflow-hidden rounded-lg text-lg font-medium font-inter text-black "
+                        >
+                          <BiPencil/>
+                        </button>
+                        <button
+                          onClick={() => navigate(`/promo/${item.id}`)}
+                          className="mt-4 justify-end group relative h-10 overflow-hidden rounded-lg text-lg font-medium font-inter text-black "
+                        >
+                          <BiDetail/>
+                        </button>
+                        <button
+                          onClick={() => handleDelete(item?.id)}
+                          className="mt-4 justify-end group relative h-10 overflow-hidden rounded-lg text-lg font-medium font-inter text-black hover:text-red-600"
+                        >
+                        <BiTrash/>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 );
               }
             })}
-            <div className="flex justify-center items-center">
+            <div className="flex flex-col gap-4 justify-center align-middle items-center">
               <button
                 onClick={() => setTotalPromo(totalPromo * 2)}
-                className="w-60 text-md border p-2 rounded-lg bg-violet-600 text-white"
-              >
-                See more . . .
+                className="w-36 text-md border p-2 rounded-lg border-violet-600 text-black "
+              > <div className="flex items-center justify-center gap-2 font-medium">
+                <BiSolidChevronsRight/>
+                More
+              </div>
               </button>
+              {
+                setTotalPromo <= 8 ? null :
+                
+              <button
+                onClick={() => setTotalPromo(totalPromo / 2)} 
+                className="w-36 text-md border p-2 rounded-lg border-violet-600 text-black hover:bg-blue-500 hover:text-white"
+              > <div className="flex items-center justify-center gap-2 font-medium">
+                <BiSolidChevronsLeft/>
+                Less
+              </div>
+              </button>
+              }
             </div>
           </div>
         </div>

@@ -92,7 +92,7 @@ const AddPromo = () => {
   };
   return (
     <>
-      <div className="md:flex justify-center items-center m-8 gap-8 w-40">
+      <div className="md:flex justify-center items-center m-8 md:ml-20 gap-8 w-40">
         <button
           onClick={openModal}
           className=" w-full text-white bg-blue-700 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "

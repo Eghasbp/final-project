@@ -68,7 +68,7 @@ const Login = () => {
   return (
     <>
       <div
-        className="bg-[#F8F8F8] h-screen w-screen flex"
+        className="bg-[#F8F8F8] h-screen w-screen lg:flex hidden"
         style={{
           background: `url(${nature})`,
           backgroundSize: "cover",
@@ -202,6 +202,114 @@ const Login = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      {/* second */}
+      <div className="text-black lg:hidden mt-40 md:mt-60 bg-white font-inter text-center w-96 mx-auto border border-blue-600 p-12 rounded-lg shadow-2xl">
+        <div>
+          <h1 className="font-semibold  text-3xl">Welcome Back!</h1>
+        </div>
+        <p className="text-[#9d9d9d] mt-2 text-xs">
+          Let's continue the journey with passion.
+        </p>
+        <div className="flex justify-center">
+          <div className="mt-8 w-80 ">
+            <div className="mb-2 block"></div>
+            <TextInput
+              onChange={handleEmail}
+              id="email4"
+              placeholder="Email"
+              required
+              rightIcon={HiMail}
+              type="email"
+              autoComplete="email"
+            />
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <div className="mt-4 w-80 ">
+            <div className="mb-2 block"></div>
+            <TextInput
+              onChange={handlePassword}
+              id="password"
+              placeholder="password"
+              required
+              type="password"
+            />
+          </div>
+        </div>
+        <div className="flex items-center mt-4 gap-2 ">
+          <Checkbox id="remember" />
+          <Label htmlFor="remember">Remember me</Label>
+        </div>
+        {/* FRAMER */}
+        <div className="flex items-center justify-center mt-8 gap-2">
+          <Button
+            className="w-80"
+            type="submit"
+            color="blue"
+            onClick={() => setIsOpen(true)}
+          >
+            Submit
+          </Button>
+        </div>
+        <AnimatePresence isOpen={isOpen} setIsOpen={setIsOpen}>
+          {isOpen && (
+            <>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsOpen(false)}
+                className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer"
+              >
+                <motion.div
+                  initial={{ scale: 0, rotate: "12.5deg" }}
+                  animate={{ scale: 1, rotate: "0deg" }}
+                  exit={{ scale: 0, rotate: "0deg" }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="bg-gradient-to-br from-blue-500 to-slate-500 text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
+                >
+                  <FiAlertCircle className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
+                  <div className="relative z-10">
+                    <div className="bg-indigo-600 w-16 h-16 mb-2 rounded-full text-3xl text-primary grid place-items-center mx-auto">
+                      <FiAlertCircle />
+                    </div>
+                    <h3 className="text-3xl font-bold text-center mb-2">
+                      One more thing!
+                    </h3>
+                    <p className="text-center mb-6">
+                      Check your username and password again to make sure it's
+                      correct, never too late to come back dude !
+                    </p>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => setIsOpen(false)}
+                        className="bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded"
+                      >
+                        Nah, go back
+                      </button>
+                      <button
+                        onClick={handleSubmit}
+                        className="bg-white hover:bg-blue-200 transition-opacity text-black font-semibold w-full py-2 rounded"
+                      >
+                        Understood!
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+
+        <div>
+          <p className="mt-5 text-gray-400 text-sm ">
+            don't have an account?{" "}
+            <Link to={"/register"}>
+              <span className="text-cyan-800 font-bold">Register</span>
+            </Link>
+          </p>
         </div>
       </div>
       <Notification

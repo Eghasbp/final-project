@@ -1,9 +1,9 @@
 import React from "react";
-import disney from "../assets/Image/disney.png";
-import nationalG from "../assets/Image/nationalG.png";
-import marvel from "../assets/Image/marvel.png";
-import pixar from "../assets/Image/pixar.png";
-import starwars from "../assets/Image/starwars.png";
+import disney from "../assets/image/disney.png";
+import nationalG from "../assets/image/nationalG.png";
+import marvel from "../assets/image/marvel.png";
+import pixar from "../assets/image/pixar.png";
+import starwars from "../assets/image/starwars.png";
 
 import disneyV from "../assets/video/a.mp4";
 import nationalGV from "../assets/video/b.mp4";

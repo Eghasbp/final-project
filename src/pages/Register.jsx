@@ -100,7 +100,7 @@ const Register = () => {
   return (
     <>
       <div
-        className="bg-[#F8F8F8] h-[100vh] w-[100vw] flex"
+        className="bg-[#F8F8F8] h-[100vh] w-[100vw] lg:flex hidden"
         style={{
           background: `url(${nature})`,
           backgroundSize: "cover",
@@ -262,7 +262,137 @@ const Register = () => {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+          {/* SECOND */}
+          <div className="text-black lg:hidden mt-4 md:mt-32 block bg-white font-inter text-center w-[350px] sm:w-[500px] mx-auto border  p-12 rounded-lg shadow-2xl">
+              <div>
+                <h1 className="font-semibold text-md md:text-xl lg:text-3xl">
+                  Please input your details
+                </h1>
+              </div>
+              <p className="text-[#9d9d9d] mt-2 text-xs">
+                Let's continue the journey with passion.
+              </p>
+              <div className="flex justify-center">
+                <div className="mt-4 w-80 ">
+                  <div className="mb-2 block"></div>
+                  <TextInput
+                    onChange={handleEmail}
+                    id="email4"
+                    placeholder="Email"
+                    required
+                    rightIcon={HiMail}
+                    type="email"
+                  />
+                </div>
+              </div>
+
+              <div className="flex justify-center">
+                <div className="mt-4 w-80 ">
+                  <div className="mb-2 block"></div>
+                  <TextInput
+                    onChange={(e) => {
+                      setName(e.target.value);
+                    }}
+                    id="name"
+                    placeholder="Name"
+                    required
+                    rightIcon={HiFingerPrint}
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <div className="flex justify-center">
+                <div className="mt-4 w-80 ">
+                  <div className="mb-2 block"></div>
+                  <TextInput
+                    onChange={(e) => {
+                      setPhone(e.target.value);
+                    }}
+                    id="phone"
+                    placeholder="Phone Number"
+                    required
+                    rightIcon={HiOutlinePhoneIncoming}
+                    type="number"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-center">
+                <div className="mt-4 w-80 ">
+                  <div className="mb-2 block"></div>
+                  <TextInput
+                    onChange={handlePassword}
+                    id="password"
+                    placeholder="password"
+                    required
+                    rightIcon={HiLockClosed}
+                    type="password"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-center">
+                <div className="mt-4 w-80 ">
+                  <div className="mb-2 block"></div>
+                  <TextInput
+                    onChange={(e) => {
+                      setPasswordRepeat(e.target.value);
+                    }}
+                    id="repeatPassword"
+                    placeholder="Retype your password"
+                    required
+                    rightIcon={HiLockClosed}
+                    type="password"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-center items-center text-left">
+                <div className="mt-4  w-80 ">
+                  <div className="mb-2 block"></div>
+
+                  <input
+                    onChange={(e) => {
+                      setRole(e.target.value);
+                      console.log(e.target.value);
+                    }}
+                    className="relative mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-blue-500 checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-blue-500 checked:after:bg-blue-500 checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-blue-500 checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-blue-500 dark:checked:after:border-blue-500 dark:checked:after:bg-blue-500 dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+                    type="radio"
+                    name="admin"
+                    value="admin"
+                    id="admin"
+                  />
+                  <label
+                    className="inline-block pl-2 hover:cursor-pointer"
+                    htmlFor="admin"
+                  >
+                    admin
+                  </label>
+                </div>
+              </div>
+              <div className="flex justify-center">
+                <div className=" w-80 ">
+                  <div className="mb-2 block"></div>
+                  <input className="mt-4" type="file" onChange={handleFile} />
+                </div>
+              </div>
+              <div className="flex items-center justify-center mt-8 gap-2">
+                <Button
+                  className="w-80"
+                  type="submit"
+                  color="blue"
+                  onClick={handleSubmit}
+                >
+                  Submit
+                </Button>
+              </div>
+              <Link to="/login">
+                <button className="mt-4 font-medium text-gray-700">
+                  {" "}
+                  ← back to login page
+                </button>
+              </Link>
+            </div>
+           
       <Notification
         severity={severityNotification}
         title={titleNotification}

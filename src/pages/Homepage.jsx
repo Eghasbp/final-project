@@ -6,8 +6,6 @@ import booking from "../assets/booking.svg";
 import expedia from "../assets/expedia.svg";
 import trip from "../assets/tripadvisor.svg";
 import orbits from "../assets/orbits.svg";
-import book from "../assets/book.png";
-import cloudy from "../assets/cloudy.png";
 import destination from "../assets/destination.png";
 import Navbar from "../component/Navbar";
 import ShuffleHero from "../component/Shuffle";
@@ -18,17 +16,22 @@ import { Link } from "react-router-dom";
 import Footer from "../component/Footer";
 import ShiftingCountdown from "../component/ShiftingCountdown";
 import { useNavigate } from "react-router";
-import {
-  ArrowPathIcon,
-  CloudArrowUpIcon,
-  FingerPrintIcon,
-  LockClosedIcon,
-} from "@heroicons/react/24/outline";
+import Modal from "../component/Modal";
+import { BiSolidChevronsRight } from "react-icons/bi";
 
 function App() {
   const navigate = useNavigate();
   const [data, getData] = useState([]);
   const [totalPromo, setTotalPromo] = useState(8); //setTotalptomo diset isinya total promo dikali 2
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const getProfile = () => {
     axios
@@ -77,13 +80,29 @@ function App() {
                   Explore Extraordinary Culture, Cuisine, and Natural Beauty
                 </p>
                 <div className="flex flex-col md:flex-row gap-6 justify-center lg:justify-start">
-                  <button className="justify-center items-center mb-4 z-10 flex gap-2 py-6 px-8 bg-white border border-blue-700 rounded-full text-sm font-bold">
+                  <button
+                    onClick={openModal}
+                    className="justify-center hover:bg-blue-100 items-center mb-4 z-10 flex gap-2 py-6 px-8 bg-white border border-blue-700 rounded-full text-sm font-bold"
+                  >
                     <img src={play} alt="" />
                     Watch Demo
                   </button>
 
+                  <Modal isOpen={isModalOpen} onClose={closeModal}>
+                    <div className="w-96 h-96">
+                      <iframe
+                        title="YouTube video player"
+                        src="https://www.youtube.com/embed/cu5BZNymMzs?si=e-moaui4OyX7_DKm"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        className="w-full h-full"
+                      ></iframe>
+                    </div>
+                  </Modal>
+
                   <button className="justify-center items-center mb-4 z-10 flex gap-2 py-6 px-8 text-white bg-blue-500 border hover:bg-blue-700 rounded-full text-sm font-bold">
-                    Get started
+                    <a href="https://internetpositif.id/">Get started</a>
                   </button>
                 </div>
               </div>
@@ -127,57 +146,43 @@ function App() {
       </section>
 
       {/* service */}
-      <section className="py-16 overflow-x-hidden px-4 md:px-20">
+      <section className="py-16 px-4 md:px-10 lg:px-20">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-12 items-center">
             <div className="md:col-span-4 flex gap-4 flex-col ">
               <span className="text-blue-500 font-bold leading-tight hidden md:block">
                 SERVICES
               </span>
-              <h2 className="font-bold text-xl  lg:text-5xl leading-tight text-gray-700  hidden md:block">
+              <h2 className="font-bold text-xl lg:text-5xl leading-tight text-gray-700  hidden md:block">
                 Our top value categories for you
               </h2>
             </div>
-            <div className="lg:col-span-8 lg:flex gap-5 w-screen ">
-              <div className="flex lg:justify-center gap-16 flex-col items-center w-[350px] rounded-[32px] border p-16">
+            <div className="lg:col-span-8 lg:flex gap-5 w-screen md:ml-16 lg:ml-32 flex flex-col md:flex-row items-center">
+              <div className="flex lg:justify-center gap-16 flex-col items-center w-[300px] lg:w-[350px] rounded-[32px] border p-8 lg:p-16">
                 <div>
                   <img src={destination} alt="" />
                 </div>
                 <div className="flex gap-8 flex-col">
-                  <h2 className="font-bold text-gray-600 text-lg text-center">
+                  <h2 className="font-bold text-gray-600 text-sm md:text-lg text-center">
                     Best Travel buddies
                   </h2>
-                  <p className="font-inter text-lg font-normal leading-relaxed text-gray-800 opacity-50 text-center">
+                  <p className="font-inter lg:text-lg text-sm font-normal leading-relaxed text-gray-800 opacity-50 text-center">
                     Immerse yourself in local cultures through guided tours,
                     interactive workshops
                   </p>
                 </div>
               </div>
-              <div className="flex justify-center gap-16 flex-col items-center w-[350px] rounded-[32px] border p-16">
+              <div className="lg:flex md:hidden flex lg:justify-center gap-16 flex-col items-center w-[300px] lg:w-[350px] rounded-[32px] border p-8 lg:p-16">
                 <div>
                   <img src={destination} alt="" />
                 </div>
                 <div className="flex gap-8 flex-col">
-                  <h2 className="font-bold text-gray-600 text-lg text-center">
+                  <h2 className="font-bold text-gray-600 text-sm md:text-lg text-center">
                     Best Tour Guide
                   </h2>
-                  <p className="font-inter text-lg font-normal leading-relaxed text-gray-800 opacity-50 text-center">
+                  <p className="font-inter  lg:text-lg text-sm font-normal leading-relaxed text-gray-800 opacity-50 text-center">
                     We leverage our local expertise to curate budget-friendly
                     tours and activities compromising
-                  </p>
-                </div>
-              </div>
-              <div className="flex justify-center gap-16 flex-col items-center w-[350px] rounded-[32px] border p-16">
-                <div>
-                  <img src={destination} alt="" />
-                </div>
-                <div className="flex gap-8 flex-col">
-                  <h2 className="font-bold text-gray-600 text-lg text-center">
-                    Best Price
-                  </h2>
-                  <p className="font-inter text-lg font-normal leading-relaxed text-gray-800 opacity-50 text-center">
-                    we understand the importance of value and finding the best
-                    price for you
                   </p>
                 </div>
               </div>
@@ -189,26 +194,26 @@ function App() {
       {/* END SECTION */}
 
       <section>
-        <div>
+        <div className="hidden md:block">
           <ShuffleHero />
         </div>
       </section>
 
       <section>
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <ProductionHouse />
         </div>
       </section>
 
       <section>
         <div className="flex justify-center items-center mt-10 md:mt-52">
-          <h2 className="font-poppins text-red-500 shadow-md font-extrabold text-4xl text-primary">
+          <h2 className="font-poppins text-red-500 font-extrabold text-4xl ">
             Promos!
           </h2>
         </div>
         <ShiftingCountdown />
         <div className="flex justify-center items-center">
-          <h2 className="font-poppins text-sm py-10 px-10 font-light md:w-2/4 text-justify text-slate-400">
+          <h2 className="font-poppins text-sm py-10 px-10 font-light md:w-2/4 text-justify text-slate-400 hidden lg:block">
             Are you ready for the adventure of a lifetime? TravelAsia invites
             you to embark on a journey like no other, where ancient traditions
             meet modern marvels, and natural beauty awaits at every turn. Our
@@ -225,13 +230,13 @@ function App() {
             in local cultures through guided tours, interactive workshops
           </h2>
         </div>
-        <div className="md:hidden flex justify-center items-center">
+        {/* <div className="md:hidden flex justify-center items-center">
           <input
             className="border border-black/30 w-60 rounded-lg p-2"
             placeholder="Search here"
             type="text"
           />
-        </div>
+        </div> */}
         <div className="flex items-center justify-center">
           <div className="grid grid-cols-2 lg:grid-cols-4 lg:mx-20 mx-2 grid-rows-1 gap-5">
             {data.map((item, key) => {
@@ -269,12 +274,15 @@ function App() {
           </div>
         </div>
         {/* SAMPLE TOTAL PROMO BUAT PAGINATION */}
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center mt-10">
           <button
             onClick={() => setTotalPromo(totalPromo * 2)}
-            className="font-medium text-xl mt-40 border p-2 rounded-lg bg-blue-500 text-white"
+            className="w-36 text-md border p-2 rounded-lg border-violet-600 text-black "
           >
-            See more
+            <div className="flex items-center justify-center gap-2 font-medium ">
+              <BiSolidChevronsRight />
+              More
+            </div>
           </button>
         </div>
       </section>

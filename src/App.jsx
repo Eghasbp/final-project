@@ -23,11 +23,7 @@ const routes = [
   },
   {
     path: "/",
-    element: (
-      <ProtectedRoutes>
-        <Homepage />
-      </ProtectedRoutes>
-    ),
+    element: <Homepage />,
   },
   {
     path: "/profile",

@@ -2,6 +2,7 @@ import React from "react";
 import TemplateDashboard from "../component/TemplateDashboard";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BiTrash } from "react-icons/bi";
 
 const Activity = () => {
   const [activities, setActivities] = useState([]);
@@ -47,8 +48,8 @@ const Activity = () => {
   return (
     <div>
       <TemplateDashboard>
-        <div className="mx-auto bg-white py-24 sm:py-32 ml-12 px-4">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto ml-8 md:ml-0 bg-white py-24  sm:py-32 ">
+          <div className="mx-auto max-w-7xl px-6 lg:px-4">
             <div className="mx-auto max-w-2xl lg:text-center">
               <h2 className="text-base font-semibold leading-7 text-indigo-600">
                 Travelasia
@@ -56,14 +57,14 @@ const Activity = () => {
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Activity
               </p>
-              <p className="mt-6 text-sm md:text-lg leading-8 text-gray-600">
+              <p className="mt-6 text-sm md:text-md lg:text-lg leading-8 text-gray-600">
                 Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
                 Suspendisse eget egestas a elementum pulvinar et feugiat blandit
                 at. In mi viverra elit nunc.
               </p>
             </div>
           </div>
-          <div className="container my-24 mx-auto md:px-6">
+          <div className="container w-1/2 my-24 mx-auto md:px-6">
             {activities.map((items, key) => (
               <section
                 key={key}
@@ -71,7 +72,7 @@ const Activity = () => {
               >
                 <img
                   src={items?.category?.imageUrl}
-                  className="mb-6 w-[500px] rounded-lg shadow-lg dark:shadow-black/20"
+                  className="mb-6 w-full rounded-lg shadow-lg dark:shadow-black/20"
                   alt="image"
                 />
 
@@ -110,9 +111,9 @@ const Activity = () => {
                 <div className="flex justify-end items-center">
                   <button
                     onClick={() => handleDelete(items?.id)}
-                    className="mt-2 justify-end group relative h-10 w-20 overflow-hidden rounded-2xl bg-red-600 text-lg font-medium font-inter mb-2 text-white"
+                    className="mt-2 font-medium font-inter text-2xl text-black hover:text-red-600"
                   >
-                    Delete
+                    <BiTrash/>
                   </button>
                 </div>
               </section>
