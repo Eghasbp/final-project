@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { usePagination, Pagination } from "pagination-react-js";
 
 const LoggedUser = () => {
   const [totalUser, setTotalUser] = useState(5);
   const [LogUser, setLogUser] = useState([]); // kalau mau store pict pake array
+  const { currentPage, entriesPerPage, entries } = usePagination(1, 10);
 
   const getPictures = () => {
     axios
@@ -55,34 +57,57 @@ const LoggedUser = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {LogUser.map((items, key) => {
-                      if (key + 1 <= totalUser) {
-                        return (
-                          <tr
-                            key={key}
-                            className="border-b text-black dark:border-neutral-500"
-                          >
-                            <td className="whitespace-nowrap px-6 py-4 font-medium">
-                              {key + 1}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4">
-                              {items.name}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4 hidden md:block">
-                              {items.email}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4 ">
-                              {items.role}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4 hidden md:block">
-                              {items.phoneNumber}
-                            </td>
-                          </tr>
-                        );
-                      }
-                    })}
+                    {
+                      LogUser.slice(entries.indexOfFirst,entries.indexOfLast).map((items,key) => (
+                        <tr
+                        key={key}
+                        className="border-b text-black dark:border-neutral-500"
+                      >
+                        <td className="whitespace-nowrap px-6 py-4 font-medium">
+                          {entries.indexOfFirst + (key +1) }
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4">
+                          {items.name}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 hidden md:block">
+                          {items.email}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 ">
+                          {items.role}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 hidden md:block">
+                          {items.phoneNumber}
+                        </td>
+                      </tr>
+                      ))
+                    }
                   </tbody>
                 </table>
+                <Pagination
+                  entriesPerPage={entriesPerPage.get}
+                  totalEntries={LogUser.length}
+                  currentPage={{ get: currentPage.get, set: currentPage.set }}
+                  offset={3}
+                  classNames={{
+                    wrapper: "pagination m-auto",
+                    item: "pagination-item",
+                    itemActive: "pagination-item-active",
+                    navPrev: "pagination-item nav-item",
+                    navNext: "pagination-item nav-item",
+                    navStart: "pagination-item nav-item",
+                    navEnd: "pagination-item nav-item",
+                    navPrevCustom: "pagination-item",
+                    navNextCustom: "pagination-item",
+                  }}
+                  showFirstNumberAlways={true}
+                  showLastNumberAlways={true}
+                  navStart="&#171;"
+                  navEnd="&#187;"
+                  navPrev="&#x2039;"
+                  navNext="&#x203a;"
+                  navPrevCustom={{ steps: 5, content: "\u00B7\u00B7\u00B7" }}
+                  navNextCustom={{ steps: 5, content: "\u00B7\u00B7\u00B7" }}
+                />
               </div>
             </div>
           </div>
