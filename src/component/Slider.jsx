@@ -9,11 +9,7 @@ import Notification from "../component/notification/Notification";
 import Modal from "./Modal";
 import {
   BiTrash,
-  BiSolidDetail,
-  BiDetail,
-  BiSolidChevronsRight,
   BiPencil,
-  BiSolidChevronsLeft,
 } from "react-icons/bi";
 
 const Slider = () => {
@@ -26,6 +22,8 @@ const Slider = () => {
   const [modalName, setModalName] = useState("");
   const [modalFile, setModalFile] = useState(null);
   const [modalFileName, setModalFileName] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  // console.log(pictures[currentIndex]);
 
   const getPictures = () => {
     axios
@@ -129,9 +127,6 @@ const Slider = () => {
       });
   };
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  console.log(pictures[currentIndex]);
-
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? pictures.length - 1 : currentIndex - 1;
@@ -231,7 +226,7 @@ const Slider = () => {
                       onClick={() => handleUpdate(pictures[currentIndex]?.id)}
                       className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
-                      Uodate Banner
+                      Update Banner
                     </button>
                   </div>
                 </div>
