@@ -4,7 +4,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import AddCategory from "../component/AddCategory";
 import { BiTrash, BiPencil } from "react-icons/bi";
-import Modal from "../component/Modal"
+import Modal from "../component/Modal";
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
@@ -145,89 +145,94 @@ const Category = () => {
                     <div className="flex justify-between">
                       <h2 className="mt-4">{items.name}</h2>
                       <div className="flex gap-2">
-                      <button
-                        onClick={() => handleDelete(items?.id)}
-                        className="mt-5 text-lg font-medium font-inter mb-2 text-black"
-                      >
-                        <BiTrash />
-                      </button>
-                      <button
-                        onClick={() => {
-                          setVisibleModal(true);
-                          setModalName(categories[currentIndex]?.name);
-                        }}
-                        className="mt-2"
-                      >
-                        <BiPencil className="w-8 h-5 text-black" />
-                        <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
-                      </button>
+                        <button
+                          onClick={() => handleDelete(items?.id)}
+                          className="mt-5 text-lg font-medium font-inter mb-2 text-black"
+                        >
+                          <BiTrash />
+                        </button>
+                        <button
+                          onClick={() => {
+                            setVisibleModal(true);
+                            setModalName(categories[currentIndex]?.name);
+                          }}
+                          className="mt-2"
+                        >
+                          <BiPencil className="w-8 h-5 text-black" />
+                          <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
+                        </button>
                       </div>
                     </div>
                   </dt>
                 </div>
               ))}
-                <Modal  isOpen={visibleModal} onClose={() => setVisibleModal(false)}>
-            <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-4 lg:px-8">
-              <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                <h2 className="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                  Edit Category
-                </h2>
-              </div>
-              <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <div className="space-y-6">
-                  <div>
-                    <label
-                      htmlFor="Name"
-                      className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                      Category Name
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        onChange={(e) => {
-                          setModalName(e.target.value);
-                        }}
-                        id="text"
-                        name="text"
-                        type="text"
-                        value={modalName}
-                        required
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      />
-                    </div>
+              <Modal
+                isOpen={visibleModal}
+                onClose={() => setVisibleModal(false)}
+              >
+                <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-4 lg:px-8">
+                  <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+                    <h2 className="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                      Edit Category
+                    </h2>
                   </div>
-
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex justify-center">
-                        <div className=" w-80 ">
-                          <div className="mb-2 block"></div>
+                  <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                    <div className="space-y-6">
+                      <div>
+                        <label
+                          htmlFor="Name"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Category Name
+                        </label>
+                        <div className="mt-2">
                           <input
-                            className=""
-                            type="file"
-                            value={modalFileName}
                             onChange={(e) => {
-                              setModalFileName(e.target.value);
-                              setModalFile(e.target.files[0]);
+                              setModalName(e.target.value);
                             }}
+                            id="text"
+                            name="text"
+                            type="text"
+                            value={modalName}
+                            required
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                           />
                         </div>
                       </div>
+
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex justify-center">
+                            <div className=" w-80 ">
+                              <div className="mb-2 block"></div>
+                              <input
+                                className=""
+                                type="file"
+                                value={modalFileName}
+                                onChange={(e) => {
+                                  setModalFileName(e.target.value);
+                                  setModalFile(e.target.files[0]);
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <button
+                          onClick={() =>
+                            handleUpdate(categories[currentIndex]?.id)
+                          }
+                          className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        >
+                          Update Banner
+                        </button>
+                      </div>
                     </div>
                   </div>
-
-                  <div>
-                    <button
-                      onClick={() => handleUpdate(categories[currentIndex]?.id)}
-                      className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                      Update Banner
-                    </button>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </Modal>
+              </Modal>
             </dl>
           </div>
         </div>

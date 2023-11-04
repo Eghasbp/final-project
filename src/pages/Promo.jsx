@@ -29,11 +29,12 @@ const Promo = () => {
   const [modalFileName, setModalFileName] = useState(null);
   const [modalDescription, setModalDescription] = useState("");
   const [modalTerms_condition, setModalTerms_condition] = useState("");
-  const [Modalpromo_discount_price, setModalpromo_discount_price] = useState("");
+  const [Modalpromo_discount_price, setModalpromo_discount_price] =
+    useState("");
   const [ModalPromo_code, setModalPromo_code] = useState("");
   const [ModalMinimum_claim_price, setModalMinimum_claim_price] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
-  
+
   const getPictures = () => {
     axios
       .get(
@@ -356,7 +357,7 @@ const Promo = () => {
                   </div>
                 </div>
               </div>
-            </Modal >
+            </Modal>
             <div className="flex flex-col gap-4 justify-center align-middle items-center">
               <button
                 onClick={() => setTotalPromo(totalPromo * 2)}

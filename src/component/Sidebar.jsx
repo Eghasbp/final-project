@@ -15,15 +15,31 @@ const Sidebar = () => {
   // console.log(location.pathname); ini untuk mengetahui path name yang aktif
   const Navigate = useNavigate();
   const menu = [
-    { name: "Home", icon: <BiHomeSmile className="w-full h-full"/>, value: "/" },
+    {
+      name: "Home",
+      icon: <BiHomeSmile className="w-full h-full" />,
+      value: "/",
+    },
     {
       name: "Dashboard Admin",
       icon: <BiCheckboxSquare className="w-full h-full" />,
       value: "/dashboard",
     },
-    { name: "Promo", icon: <BiSolidDiscount className="w-full h-full" />, value: "/promo" },
-    { name: "Activity", icon: <BiPulse className="w-full h-full" />, value: "/activity" },
-    { name: "Category", icon: <BiCategory className="w-full h-full" />, value: "/category" },
+    {
+      name: "Promo",
+      icon: <BiSolidDiscount className="w-full h-full" />,
+      value: "/promo",
+    },
+    {
+      name: "Activity",
+      icon: <BiPulse className="w-full h-full" />,
+      value: "/activity",
+    },
+    {
+      name: "Category",
+      icon: <BiCategory className="w-full h-full" />,
+      value: "/category",
+    },
   ];
 
   const schedule = [

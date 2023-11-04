@@ -113,7 +113,7 @@ const Activity = () => {
                     onClick={() => handleDelete(items?.id)}
                     className="mt-2 font-medium font-inter text-2xl text-black hover:text-red-600"
                   >
-                    <BiTrash/>
+                    <BiTrash />
                   </button>
                 </div>
               </section>

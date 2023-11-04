@@ -29,7 +29,7 @@ const Dashboard = () => {
           </div>
         </section>
         <div className="lg:block hidden">
-        <ContentRight />
+          <ContentRight />
         </div>
       </div>
     </>

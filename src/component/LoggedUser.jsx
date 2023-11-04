@@ -57,14 +57,16 @@ const LoggedUser = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {
-                      LogUser.slice(entries.indexOfFirst,entries.indexOfLast).map((items,key) => (
-                        <tr
+                    {LogUser.slice(
+                      entries.indexOfFirst,
+                      entries.indexOfLast
+                    ).map((items, key) => (
+                      <tr
                         key={key}
                         className="border-b text-black dark:border-neutral-500"
                       >
                         <td className="whitespace-nowrap px-6 py-4 font-medium">
-                          {entries.indexOfFirst + (key +1) }
+                          {entries.indexOfFirst + (key + 1)}
                         </td>
                         <td className="whitespace-nowrap px-6 py-4">
                           {items.name}
@@ -79,8 +81,7 @@ const LoggedUser = () => {
                           {items.phoneNumber}
                         </td>
                       </tr>
-                      ))
-                    }
+                    ))}
                   </tbody>
                 </table>
                 <Pagination

@@ -9,9 +9,8 @@ import {
   BiCategory,
 } from "react-icons/bi";
 
-
 const PhoneSidebar = () => {
-    const location = useLocation();
+  const location = useLocation();
   // console.log(location.pathname); ini untuk mengetahui path name yang aktif
   const Navigate = useNavigate();
   const menu = [
@@ -26,9 +25,10 @@ const PhoneSidebar = () => {
     { name: "Category", icon: <BiCategory />, value: "/category" },
   ];
   return (
-    <div className="bg-red-600 flex"><button>
-        sdsdsadasdasd</button></div>
-  )
-}
+    <div className="bg-red-600 flex">
+      <button>sdsdsadasdasd</button>
+    </div>
+  );
+};
 
-export default PhoneSidebar
+export default PhoneSidebar;

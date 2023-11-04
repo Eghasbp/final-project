@@ -27,7 +27,7 @@ const DetailPromo = () => {
   useEffect(() => {
     getDetail();
   }, []);
-  
+
   return (
     <div>
       <div className="flex flex-col justify-between lg:flex-row gap-16 lg:items-center">
@@ -44,9 +44,13 @@ const DetailPromo = () => {
             <span className=" text-violet-600 font-semibold">
               Special Promo
             </span>
-            <h1 className="md:text-3xl text-xl font-bold md:mb-10">{DetailPromo.title}</h1>
+            <h1 className="md:text-3xl text-xl font-bold md:mb-10">
+              {DetailPromo.title}
+            </h1>
           </div>
-          <p className="text-gray-700 text-sm md:text-base ">{DetailPromo.description}</p>
+          <p className="text-gray-700 text-sm md:text-base ">
+            {DetailPromo.description}
+          </p>
           <p className="text-gray-700 sm:text-md text-sm">
             Terms and condition: <br />
             {DetailPromo.terms_condition}
@@ -55,11 +59,11 @@ const DetailPromo = () => {
             Promo Code : {DetailPromo.promo_code}
           </h6>
           <div className="flex justify-center">
-          <Link to={"/promo"}>
-            <button className=" border border-violet-600 text-black font-semibold py-3 px-16 rounded-xl w-40 md:w-96 mt-10 md:mt-40">
-              Back
-            </button>
-          </Link>
+            <Link to={"/promo"}>
+              <button className=" border border-violet-600 text-black font-semibold py-3 px-16 rounded-xl w-40 md:w-96 mt-10 md:mt-40">
+                Back
+              </button>
+            </Link>
           </div>
         </div>
       </div>
