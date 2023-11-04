@@ -89,7 +89,7 @@ const LoggedUser = () => {
                   currentPage={{ get: currentPage.get, set: currentPage.set }}
                   offset={3}
                   classNames={{
-                    wrapper: "pagination m-auto",
+                    wrapper: "pagination m-auto mt-4 mb-12",
                     item: "pagination-item",
                     itemActive: "pagination-item-active",
                     navPrev: "pagination-item nav-item",

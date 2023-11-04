@@ -7,6 +7,14 @@ import ButtonBanner from "./Content/ButtonBanner";
 import { Tooltip } from "react-tippy";
 import Notification from "../component/notification/Notification";
 import Modal from "./Modal";
+import {
+  BiTrash,
+  BiSolidDetail,
+  BiDetail,
+  BiSolidChevronsRight,
+  BiPencil,
+  BiSolidChevronsLeft,
+} from "react-icons/bi";
 
 const Slider = () => {
   const [pictures, setPictures] = useState([]); // kalau mau store pict pake array
@@ -142,26 +150,19 @@ const Slider = () => {
 
   return (
     <>
-      <div
-        className="hidden md:block w-full border border-gray-300 rounded-xl bg-gradient-to-r from-gray-300  to-gray-300 h-full"
-        style={{
-          background: `url(${bg})`,
-          backgroundSize: "contain",
-          backgroundPosition: "center",
-          backgroundBlendMode: "multiply",
-        }}
-      >
-        <h2 className="text-center p-4 font-bold font-inter text-2xl text-white bg-violet-600 rounded-lg">
+        <div className="flex justify-center">
+        <h2 className="text-center sm:w-96 md:w-full p-4 font-bold font-inter lg:text-2xl md:text-xl text-white bg-violet-600 rounded-lg">
           Banner Showcase & Logged Users
         </h2>
-        <ButtonBanner />
-        <div className=" h-[500px] w-1/2 m-auto px-4 relative group">
+        </div>
+        <div className=" h-[500px] w-3/4 m-auto px-4 relative group">
           <div className="flex justify-end items-center">
+            <ButtonBanner />
             <button
               onClick={() => handleDelete(pictures[currentIndex]?.id)}
-              className="group relative h-10 w-20 overflow-hidden rounded-2xl bg-red-600 nd:text-md lg:text-lg md:font-medium font-inter mb-2 text-white"
+              className="group relative  rounded-2xl nd:text-md mt-2 lg:text-lg md:font-medium font-inter mb-2 text-white"
             >
-              Delete
+              <BiTrash className="w-8 h-5 text-black"/>
               <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
             </button>
             <button
@@ -169,17 +170,17 @@ const Slider = () => {
                 setVisibleModal(true);
                 setModalName(pictures[currentIndex]?.name);
               }}
-              className="group relative h-10 w-20 overflow-hidden rounded-2xl bg-red-600 nd:text-md lg:text-lg md:font-medium font-inter mb-2 text-white"
+              className="group relative ml-4 overflow-hidden mt-2 rounded-2xl nd:text-md lg:text-lg md:font-medium font-inter mb-2 text-white"
             >
-              Edit
+              <BiPencil  className="w-8 h-5 text-black"/>
               <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
             </button>
           </div>
-          <Modal isOpen={visibleModal} onClose={() => setVisibleModal(false)}>
+          <Modal  isOpen={visibleModal} onClose={() => setVisibleModal(false)}>
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-4 lg:px-8">
               <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <h2 className="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                  Add Banner
+                  Edit Banner
                 </h2>
               </div>
               <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -246,9 +247,9 @@ const Slider = () => {
             arrowSize="small" // Customize arrow size
           >
             <div className="flex justify-center">
-              <div className="w-[800px] h-full rounded-2xl bg-center bg-cover duration-500">
+              <div className="w-full">
                 <img
-                  className="h-[380px] w-full rounded-lg border border-gray-600 p-4 shadow-2xl"
+                  className="h-[380px] w-full rounded-lg border bg-gray-500 p-4 shadow-2xl"
                   src={pictures[currentIndex]?.imageUrl}
                   alt=""
                 />
@@ -264,8 +265,7 @@ const Slider = () => {
             <BsChevronCompactRight onClick={nextSlide} size={30} />
           </div>
         </div>
-      </div>
-      <div></div>
+
 
       <Notification
         severity={severityNotification}

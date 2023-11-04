@@ -48,7 +48,7 @@ const Activity = () => {
   return (
     <div>
       <TemplateDashboard>
-        <div className="mx-auto ml-8 md:ml-0 bg-white py-24  sm:py-32 ">
+        <div className="mx-auto ml-8 md:ml-0 bg-white py-24 sm:py-32 ">
           <div className="mx-auto max-w-7xl px-6 lg:px-4">
             <div className="mx-auto max-w-2xl lg:text-center">
               <h2 className="text-base font-semibold leading-7 text-indigo-600">
@@ -64,7 +64,7 @@ const Activity = () => {
               </p>
             </div>
           </div>
-          <div className="container w-1/2 my-24 mx-auto md:px-6">
+          <div className="container w-3/4 my-24 mx-auto md:px-6">
             {activities.map((items, key) => (
               <section
                 key={key}
@@ -84,7 +84,7 @@ const Activity = () => {
                     loading="lazy"
                   />
                   <div>
-                    <span>
+                    <span className="text-sm md:text-md">
                       {" "}
                       Published <u>{items?.category?.createdAt}</u> at category{" "}
                       {items?.category?.name}

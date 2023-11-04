@@ -146,11 +146,11 @@ function App() {
       </section>
 
       {/* service */}
-      <section className="py-16 px-4 md:px-10 lg:px-20">
+      <section className="py-16 px-4 md:px-10 lg:px-20 hidden lg:block">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-12 items-center">
             <div className="md:col-span-4 flex gap-4 flex-col ">
-              <span className="text-blue-500 font-bold leading-tight hidden md:block">
+              <span className="text-blue-500 font-bold leading-tight hidden lg:block">
                 SERVICES
               </span>
               <h2 className="font-bold text-xl lg:text-5xl leading-tight text-gray-700  hidden md:block">
@@ -213,7 +213,7 @@ function App() {
         </div>
         <ShiftingCountdown />
         <div className="flex justify-center items-center">
-          <h2 className="font-poppins text-sm py-10 px-10 font-light md:w-2/4 text-justify text-slate-400 hidden lg:block">
+          <h2 className="font-poppins text-sm py-10 px-10 font-light md:w-2/4 lg:w-5/6 text-justify text-slate-400 hidden lg:block">
             Are you ready for the adventure of a lifetime? TravelAsia invites
             you to embark on a journey like no other, where ancient traditions
             meet modern marvels, and natural beauty awaits at every turn. Our

@@ -14,7 +14,7 @@ const Dashboard = () => {
       <div className="w-full min-h-screen bg-white flex lg:flex-row">
         <Sidebar />
         <section
-          className="flex-1 w-auto bg-cover h-screen"
+          className="flex-1 w-full bg-cover h-screen"
           // style={{ background: `url(${gray})` }}
         >
           <div className="md:px-12 p-4 max-w-screen-2xl mx-auto mt-10">

@@ -38,7 +38,7 @@ const Sidebar = () => {
   return (
     <>
       <div className="lg:hidden fixed bottom-0 z-50 bg-white border-t flex justify-between w-full gap-6 py-4 px-4">
-        <div className="w-full flex justify-between">
+        <div className="w-full flex justify-between ">
           {
             //
             menu.map((val, index) => {
@@ -52,18 +52,18 @@ const Sidebar = () => {
                       : `text-gray-500`
                   }`}
                 >
-                  <div className="mr-5 w-8 h-8">{val.icon}</div>
+                  <div className="mr-5 w-6 h-6 md:w-8 md:h-8">{val.icon}</div>
                 </Link>
               );
             })
           }
         </div>
       </div>
-      <div className="max-h-full hidden lg:block  md:w-64 w-20  px-2 md:px-9 py-9 ">
+      <div className="max-h-full hidden lg:block  lg:w-64 w-20  px-2 md:px-9 py-9 ">
         <div className="fixed">
-          <div className="flex lg:flex-row flex-col items-center pt-8 gap-4">
+          <div className="flex lg:flex-row flex-col items-center pt-2 gap-4">
             <img src={Logo} alt="" className="w-9 h-9" />
-            <div className="font-Circular font-semibold hidden md:block">
+            <div className="font-Circular font-semibold hidden xl:block">
               Travelasia
             </div>
           </div>
@@ -87,15 +87,15 @@ const Sidebar = () => {
                         }`}
                       >
                         <div className="mr-5">{val.icon}</div>
-                        <div className="hidden md:block">{val.name}</div>
+                        <div className="hidden xl:block">{val.name}</div>
                       </Link>
                     );
                   })
                 }
               </ul>
             </div>
-            <div>
-              <div className="hidden md:block mb-7 font-inter font-semibold text-blue-600">
+            <div className=" hidden xl:block">
+              <div className=" mb-7 font-inter font-semibold text-blue-600">
                 Trivia Area
               </div>
               <div className="space-y-7">
